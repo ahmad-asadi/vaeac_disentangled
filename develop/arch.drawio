@@ -1,0 +1,48 @@
+<mxfile host="Electron" modified="2024-04-21T08:04:26.142Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="8zMlyVjFZuYvDBbWKrpx" version="24.2.5" type="device">
+  <diagram name="Page-1" id="6Gdo2ZwKGSATiekE2Nh-">
+    <mxGraphModel dx="1434" dy="870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontStyle=1" edge="1" parent="1" source="EZSm3JGlMUGLdrdl0-40-1" target="EZSm3JGlMUGLdrdl0-40-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-1" value="Feature&lt;br&gt;Extractor" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;fontStyle=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="160" y="210.18" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontStyle=1" edge="1" parent="1" source="EZSm3JGlMUGLdrdl0-40-2" target="EZSm3JGlMUGLdrdl0-40-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-2" value="Feature&lt;br&gt;Extractor" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;fontStyle=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="160" y="310.18" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontStyle=1" edge="1" parent="1" source="EZSm3JGlMUGLdrdl0-40-3" target="EZSm3JGlMUGLdrdl0-40-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-3" value="Feature&lt;br&gt;Extractor" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;fontStyle=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" vertex="1" parent="1">
+          <mxGeometry x="160" y="500.18" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-4" value="Coin 1 prices" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.waveforms.sine_wave;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="90" height="66.18" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-5" value="Coin 2 prices" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.waveforms.sine_wave;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="283.82" width="90" height="66.18" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-6" value="Coin N prices" style="pointerEvents=1;verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;shape=mxgraph.electrical.waveforms.sine_wave;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="484" width="90" height="66.18" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontStyle=1" edge="1" parent="1" source="EZSm3JGlMUGLdrdl0-40-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="550" y="378" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-7" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Coin Switching&lt;br&gt;Actor-Critic Model&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+          <mxGeometry x="340" y="310.18" width="135" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="EZSm3JGlMUGLdrdl0-40-12" value="Portfolio Proposal for&amp;nbsp;&lt;div&gt;next investment interval&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="560" y="357.68" width="150" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

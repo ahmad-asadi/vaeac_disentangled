@@ -1,0 +1,281 @@
+\section{Experimental Results}
+%\lipsum[2]
+
+\subsection{The Dataset}
+
+In our study, we analyze a dataset consisting of historical daily OHLC (Open, High, Low, Close) data for the ten most liquid crypto-currencies in the market over the recent years\footnote{The OHLC prices were collected using the "CoinGeckoAPI" in Python. For more information, visit \url{https://www.coingecko.com/en/api}}. The coins chosen for our research are listed in Table \ref{tbl:data} . It is important to note that in cases where a coin has fewer than 3838 days of price data, the price series is extended by repeating the initial data point to fill the time interval.
+
+\begin{table}[h]
+	\centering
+	\caption{List of selected coins in experimental data-set}
+	\begin{tabular}{c|c|c|c}
+		Symbol & Start Date & End Date & Number of available daily records \\
+		\hline
+		\hline
+		bitcoin & 2013-04-29 & 2023-11-01& 3838 \\
+		ethereum & 2015-08-07 & 2023-11-01& 3008 \\
+		binancecoin & 2017-09-17 & 2023-11-01& 2236 \\
+		binance-peg-xrp & 2021-05-12 & 2023-11-01& 903 \\
+		solana & 2020-04-10 & 2023-11-01& 1300 \\
+		litecoin & 2013-04-29 & 2023-11-01& 3838 \\
+		binance-peg-polkadot & 2021-05-12 & 2023-11-01& 903 \\
+		binance-peg-cardano & 2021-05-12 & 2023-11-01& 903 \\
+		dogecoin & 2013-12-17  & 2023-11-01& 3606 \\
+		matic-network & 2019-04-26 & 2023-11-01& 1650\\
+		
+	\end{tabular}
+	\label{tbl:data}
+
+\end{table}
+
+This dataset provides a comprehensive view of the price movements and trends in the crypto market, enabling us to evaluate the performance of the proposed method for stock portfolio management under real-world conditions. Figure \ref{fig:dataset} illustrates 100 random price series available in the dataset.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{./dataset.png}
+	\caption{Sample coin price time-series from the available dataset.}
+	\label{fig:dataset}
+\end{figure}
+
+In the rest of this section we will investigate different aspects of the proposed model in portfolio management. Section 4.2 studies the features of the latent space learned by the VAE model. Section 4.3 provides an ablation study on the proposed model and a makes a comparison between the performance of different versions of the proposed model. Section 4.4 compares the results of the proposed model with the baseline models.
+
+\subsection{Latent Space Investigation}
+
+The primary goal of the proposed model is to establish a suitable framework for quantifying the uncertainty surrounding the persistence of the prevailing stock price trend, with the aim of identifying the underlying rationale for adjusting portfolio assets based on forecasts of future price movements for individual stocks. The proposed VAE model outlined in Section 3.1 is tasked with capturing a latent space from the input price time-series data to assess the likelihood of a shift in trend direction in the future. Consequently, an examination of the characteristics of the acquired latent space within this model can offer insights into the efficacy of the proposed approach and its overarching objective.
+
+To facilitate a clearer examination of the latent space and to shift the emphasis towards analyzing the model's behavior within this learned space, we investigate the model's performance using a synthetic dataset comprising noisy sine waves. Given that the concept of \textit{"mean reversion"}\footnote{Mean reversion is a statistical property observed in financial markets where stock prices tend to fluctuate around a long-term average, with extreme price movements typically followed by a corrective movement that brings the price closer to its historical mean. For more information about reports investigating mean reversion property in financial markets refer to \citet{enow2023investigating} and \citet{corbet2020asymmetric}.} is commonly utilized in the analysis of financial time series, we opt for a dataset featuring noisy sine waves due to their simplistic structure and resemblance to financial time series exhibiting mean reversion over extended periods.
+
+The synthesized series in this tiny dataset are generated based on the equation \eqref{eq:sines}.
+\begin{equation}
+	\zeta_t^i = \epsilon_t + sin(\nu^i + \frac{t}{2\pi})
+	\label{eq:sines}
+\end{equation}
+where $\zeta_t^i$  represents the $t$th element in the $i$th time series within the generated dataset. White noise $\epsilon_t \propto N(0,1)$ is introduced at each time step to add noise to the generated sequences, and a random uniform offset  $\nu^i \propto U(0, 2\pi)$ is applied to the $i$th sample in the dataset. Random windows based on equation \eqref{eq:sines} are generated and labeled using equation \eqref{eq:class1}. The VAE model is trained using the synthetic time series dataset. Given that all input samples in the generated dataset consist of sequences of scalar values, the model assumes the cardinality of both latent features are set to 1.
+
+Figure \ref{fig:latent_sine} demonstrates the VAE's generation of random samples with varying $\hat{\mu}$ and $\hat{\sigma}$. The illustration involves traversing the latent space while adjusting $\hat{\mu}$ and $\hat{\sigma}$ values from $-1$ to $+1$. The top left image corresponds to $\hat{\mu} = -1$ and  $\hat{\sigma} = -1$, the top right image to $\hat{\mu} = +1$ and  $\hat{\sigma} = -1$, the bottom left image to $\hat{\mu} = -1$ and  $\hat{\sigma} = +1$, and the bottom right image to $\hat{\mu} = +1$ and  $\hat{\sigma} = +1$.
+
+Figure \ref{fig:latent_sine} highlights two key aspects. First, the VAE model effectively learns to separate data based on the series trend within the latent space. Samples near the center of the space, around $\hat{\mu} = 0$ and  $\hat{\sigma} = 0$, exhibit a subtle change in price trend, whereas those in the corners display a clear and distinct trend. Second, the latent space is populated with quarters of sine series that exhibit transitions in trend at their beginnings or endings. This indicates that the proposed VAE model can differentiate factors associated with price changes by leveraging its classification loss to disentangle the latent space effectively.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{./model_latent_sine.png}
+	\caption{Illustration of the latent space learned by simple VAE over noisy sine series.}
+	\label{fig:latent_sine}
+\end{figure}
+
+In the next experiment, the VAE model was trained using the closing price sequences from the crypto-currency dataset. Similarly, both latent features were constrained to a cardinality of $1$ for this experiment. The latent space generated from this training is visualized in Figure \ref{fig:latent_full}. The series displayed in the upper section of the figure represent series with consistently positive price trend, whereas those in the lower section depict abrupt declines. This visualization effectively demonstrates the VAE model's ability to disentangle distinct trends within the data.
+
+
+%
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale=0.8]{./model_latent_space_wo_classifier.png}
+%\caption{Illustration of the latent space learned by simple VAE over model performance series.}
+%\label{fig:latent_wo_classifier}
+%\end{figure}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{./model_latent_space.png}
+	\caption{Illustration of the latent space learned by VAE with classifier over model performance series}
+	\label{fig:latent_full}
+\end{figure}
+
+
+\subsection{Ablation Study}
+
+To assess the effectiveness of different components of the proposed method, we conduct an ablation study where we systematically analyze the impact of key elements such as the VAE for uncertainty measurement and the Actor-Critic neural network for stock portfolio proposal. By comparing the performance of the complete model with variations that exclude specific components, we aim to understand the contribution of each part to the overall coin switching strategy.
+
+\subsubsection{Feature Extraction}
+In the initial experiment in ablation study, our objective is to examine the influence of the VAE model on classification of price trend movement direction. For this aim, we utilize a multi-layer perceptron (MLP) network to categorize the direction of price movements based on the definition outlined in equation \eqref{eq:class1}. The outcomes of price trend prediction using various classifiers are compared in Table \ref{tbl:FE-pred}.
+
+The baseline models considered in this study are as follows:
+\begin{itemize}
+	\item \textbf{MLP}. This model is a basic MLP classifier trained directly on the input series without any feature extraction.
+	\item \textbf{VAE-Z}. Here, the VAE is trained, and only the embedding vector $Z$ is provided to the classifier as the extracted feature.
+	\item \textbf{VAE-TR}. In this model, the VAE is trained, and the concatenated latent vectors $\hat{\mu}$ and $\hat{\sigma}$ are passed to the classifier as the extracted feature.
+	\item \textbf{VAE-Y}. This model involves training the VAE, and only the VAE's embedded classifier output $\hat{Y} = \Phi(\hat{\mu}, \hat{\sigma})$ is used as the extracted feature.
+	\item \textbf{VAE-FULL}. In this setup, the VAE is trained, and all encoder outputs containing $Z$, $\hat{\mu}$, and $\hat{\sigma}$ are concatenated and provided to the classifier as the extracted feature.
+\end{itemize}
+
+Table \ref{tbl:FE-pred} presents a comparison of the baseline models' accuracy in the classification task. The results indicate that model \textbf{VAE-Y} performs the best as a feature extractor. This observation supports our hypothesis that accurately predicting the likelihood of continuation of the current stock price trend can assist portfolio management models in determining optimal points for asset switching within the portfolio.
+
+\begin{table}[h]
+	\centering
+	\caption{Comparison between baseline models accuracy in predicting the future price trend direction}
+	\label{tbl:FE-pred}
+	\begin{tabular}{c | c | c | c | c | c }
+		Method & MLP & VAE-Z & VAE-TR & VAE-Y & VAE-FULL \\
+		\hline
+		\hline
+		Train & 63.48& 76.94 & 95.36 & \textbf{95.45} & 94.36\\
+		Test & 61.80& 73.59 & 93.47 & \textbf{95.55} & 94.72\\
+	\end{tabular}
+\end{table}
+
+\subsubsection{Latent Space Dimensionality}
+The following experiment aims to explore how the size of latent vectors $\hat{\mu}$ and $\hat{\sigma}$ influences the quality of extracted features. In this study, we varied the dimensions of the latent vectors and assessed the classifier's accuracy in predicting the next price movement direction.
+
+The comparison of these models is presented in Table \ref{tbl:FE-dim}. The findings from this table suggest that enhancing the dimensionality of latent vectors leads to improved model performance. This improvement can be attributed to the larger latent vector size enabling the model to more effectively encapsulate the extracted information into a single vector. It is worth noting that as the dimensionality increases, more data is required for training, and therefore, performance gains may plateau after reaching a certain threshold with a fixed dataset size.
+
+
+\begin{table}[h]
+	\centering
+	\caption{The impact of the latent vectors size on the accuracy of the price trend prediction}
+	\label{tbl:FE-dim}
+	\begin{tabular}{c | c | c | c | c | c }
+		Method & 1 & 10 & 50 & 150 & 200 \\
+		\hline
+		\hline
+		Train & 95.45& 96.02 & 98.51 & \textbf{98.85} & 95.46\\
+		Test & 95.55& 94.16 & 97.37 & \textbf{98.23} & 91.24\\
+	\end{tabular}
+\end{table}
+
+\subsubsection{Reward Function}
+The reward function proposed for the coin-switching agent in equation \ref{eq:ri} is designed based on the distance between the selected coin by the agent and the best coin at each time step. This approach aims to incentivize the agent to learn to switch to the best coin at every time step. Another commonly used reward function in this research domain is the total portfolio return at each time step. To evaluate the effectiveness of the proposed reward function, a comparison between these two models is presented in table \ref{tbl:rewards}. The table includes metrics such as total return on investment (\textbf{total-ROI}), maximum drawdown (\textbf{MDD}), and average return (\textbf{AR}) for each model. The results indicate that the model utilizing the proposed return function demonstrates superior performance compared to the traditional reward function commonly used in the field.
+
+
+\begin{table}[h]
+	\centering
+	\caption{The impact of proposed reward function}
+	\label{tbl:rewards}
+	\begin{tabular}{c | c | c | c  }
+		Method & total-ROI & MDD & AR \\
+		\hline
+		\hline
+		Proposed Reward & \textbf{125 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% \\
+		Common Reward & 54 \%  & -20 \%  & 0.15 \%\\
+	\end{tabular}
+\end{table}
+
+
+\subsubsection{Considering Risk-free Asset}
+One of the main underlying assumptions in our study was that mitigating minor losses would enhance portfolio management effectiveness. Consequently, we conducted an additional experiment to investigate how our model performs with and without the inclusion of a risk-free asset. Table \ref{tbl:rf1} presents a comparison of the model's performance under these conditions. The results indicate that the model performs better when the risk-free asset is included, particularly in terms of metrics such as maximum drawdown. This suggests that timely switching to the risk-free asset can help prevent losses in the investment process.
+
+\begin{table}[h]
+	\centering
+	\caption{The impact of risk-free asset presence on model's performance}
+	\label{tbl:rf1}
+	\begin{tabular}{c | c | c | c  }
+		Method & total-ROI & MDD & AR \\
+		\hline
+		\hline
+		with tether & \textbf{125 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% \\
+		without tether & 28 \% & -34 \% & 0.11 \% \\
+	\end{tabular}
+\end{table}
+
+%To demonstrate the efficiency of the proposed model in identifying and transitioning to the risk-free asset at opportune moments, we conducted an additional experiment. In this study, we defined periods where all coins exhibited a bearish price trend as bearish markets, with all other times classified as bullish. Subsequently, we evaluated the behavior of the coin-switching agent in terms of its ability to switch to the risk-free asset during bearish market conditions. The outcomes of this experiment are presented in Table \ref{tbl:rf2}. The true positive metric (TP) signifies the percentage of instances where the coin-switching agent correctly switched to the risk-free asset, while the false positive metric (FP) indicates the percentage of incorrect switches, and so forth. The results reveal that in the presence of a risk-free asset, the model effectively learns to transition to this asset when the majority of other coins are experiencing a bearish price trend. Our findings demonstrate that the coin-switching agent successfully switched to the risk-free asset in approximately 30\% of instances when all available coins were in a bearish trend.
+%
+%\begin{table}[h]
+%	\centering
+%	\caption{The confusion matrix of the proposed model indicating the power of the model in switching to the risk-free asset at proper times.}
+%	\label{tbl:rf2}
+%	\begin{tabular}{c | c | c }
+%		Market & Positive & Negative \\
+%		\hline
+%		\hline
+%		Positive & 0& 0 \\
+%		Negative & 0& 0 \\
+%	\end{tabular}
+%\end{table}
+
+%The experiment's results is summarized to compare various iterations of the proposed model. Table \ref{tbl:cmp1} presents the performance metrics of these models for comparison. The findings from the table indicate that the model utilizing \textbf{VAE-Y} as the feature extractor and incorporating the suggested reward function that accounts for the risk-free asset outperforms other versions of the model.
+
+\subsection{Portfolio Proposals}
+The primary objective of the proposed model is to identify optimal time points for transitioning between different coins in the market. While the model's primary focus is distinct from portfolio management in which models are supposed to propose a combination of instruments at each time-step, we conducted a performance evaluation by comparing it against both single asset trading strategies and portfolio management models to assess its effectiveness in identifying optimal transition points between coins.
+
+\subsubsection{Baselines}
+The baseline models that have been compared with the proposed model are outlined below:
+
+\begin{itemize}
+	\item \textbf{BaH(X)}. This denotes the buy and hold strategy, where coin X is purchased at the beginning of the experiment and held until the end.
+%	\item \textbf{MLP-vanilla} \citet{taghian2022learning}.  This model, introduced by \citet{taghian2022learning}, involves a Deep Reinforcement Learning (DRL) model that learns candlestick patterns and establishes generalized trading rules for Bitcoin.
+	\item \textbf{UCRP}. Uniform Constant Rebalanced Portfolio strategy involves setting the portfolio proposal vector to a uniform vector $w^t=(\frac{1}{n}, \cdots, \frac{1}{n})$ at the start of each time step, where $n$ represents the number of available coins and $|w^t| = n$.	
+	\item \textbf{FTW}. Following the winner strategy adjusts the portfolio proposal vector at each time step based on the historical performance of coins, with weights of winning coins revised according to their cumulative return $w^t = SoftMax(CR_t)$, where $CR_t$ calculated as in equation \eqref{eq:ftw}.
+	\begin{align}
+		CR_t = \{R(X_i^{1:t})| \> &X_i^{1:t} = \{X_i^1, \cdots, X_i^t\} \> \land  \notag \\ 
+		&R(X_i^{1:t}) = \frac{X_i^t}{X_i^1} \> \land \notag \\ 
+		&i \in \{1, \cdots, n\}\}
+		\label{eq:ftw}
+	\end{align}
+
+	\item \textbf{FTL}. Following the loser strategy refines the portfolio proposal vector at the beginning of each time step by adjusting the weights of losing coins based on the inverse of their historical performance $w^t = SoftMax(CR_t^{-1})$, using $CR_t^{-1}$ computed as shown in equation \eqref{eq:ftl}.
+	\begin{align}
+	CR_t^{-1} = \{R(X_i^{1:t})^{-1} | &X_i^{1:t} = \{X_i^1, \cdots, X_i^t\} \> \land \notag\\ 
+	&R(X_i^{1:t})^{-1} = \frac{1}{1 + log(\frac{X_i^t}{X_i^1})} \> \land \notag \\  
+	&i \in \{1, \cdots, n\} \}
+	\label{eq:ftl}
+	\end{align}
+\end{itemize}
+Table \ref{tbl:cmp} presents the comparison of the performance of the proposed model against the baseline models in terms of total return on investment (RoI), maximum drawdown, and average return. In this table, the term $CoinSwitching$ denotes the proposed model with the common reward term, while $CoinSwitching^*$ represents the proposed model with the proposed reward function, which is considered the most effective version of the proposed model.
+
+\begin{table}[h]
+	\centering
+	\caption{Comparison of the performance of the proposed model versus portfolio management, and single asset trading strategies.}
+	\label{tbl:cmp}
+	\begin{tabular}{l| c | c | c | c  }
+		Strategy & Model & total-ROI & MDD & AR \\
+		\hline
+		\hline
+		\multirow{5}{*}{Single-Asset} 	& BaH(Bitcoin) & 69 \%  & -20 \% & 0.17 \% \\
+										& BaH(Ethereum) & 14 \%  & -27 \% & 0.08  \% \\
+										& BaH(Binancecoin) & -30 \%  & -41 \% & 0.06  \% \\
+										& BaH(Solana) & 19 \%  & -73 \% & 0.21 \% \\
+										& BaH(Dogecoin) & -52 \%  & -59 \% & 0.13  \% \\
+%										& MLP-vanilla \citet{taghian2022learning} & 248506 \%  & -82 \% & 1.87  \% \\
+		\hline
+		\hline
+		\multirow{3}{*}{Portfolio Management} 	& UCRP & -14 \%  & -35 \% & 0.010 \% \\
+												& FTW & -15 \%  & -33 \% & 0.017  \% \\
+												& FTL & -15 \%  & -41 \% & 0.014  \% \\
+		\hline
+		\hline
+		\multirow{2}{*}{Proposed Model}  	& $CoinSwitching$ &  54 \%  & -20 \%  & 0.15 \%\\
+											& $CoinSwitching^*$ & \textbf{125 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% \\
+	\end{tabular}
+\end{table}
+
+Furthermore, the diagram in Figure \ref{fig:versions} illustrates the evolution of portfolio values for various strategies over time. It is evident from the graph that the suggested approach outperforms other strategies by mitigating minor losses. While different segments of the proposed strategy's portfolio value curve resemble those of other strategies, the key distinction lies in its ability to avert losses by switching between selected coins, thereby enhancing overall portfolio performance significantly.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{./ms_with_tether.png}
+	\caption{Comparison of the proposed model with single asset strategies.}
+	\label{fig:versions}
+\end{figure}
+
+Moreover, Figure \ref{fig:changes1} depicts the behaviors of the optimal coin-switching strategy over the investment period. As shown in the figure, the strategy predominantly involves switching between coins when there are noticeable declines in coin prices, while minor price fluctuations have minimal impact on the agent's decisions.
+
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{./changes1.png}
+	\caption{Model selection during investment timesteps}
+	\label{fig:changes1}
+\end{figure}
+
+%
+%\subsection{Comparison with Portfolio Management Strategies}
+%
+%
+%In the final part of our experiments, we compare the performance of our proposed method with other state-of-the-art models for portfolio management in the cryptocurrencies market. We evaluate key metrics such as return on investment, Sharpe ratio, and maximum drawdown to assess the effectiveness and robustness of our approach in generating optimal stock portfolios under uncertainty. By benchmarking our method against existing models, we aim to demonstrate its superiority in handling volatility and risk in the crypto market.
+%
+%Through these experiments, we seek to validate the efficacy of our proposed method for stock portfolio management in the cryptocurrencies market and provide insights into its performance compared to alternative approaches. The results of these experiments will contribute to advancing AI-driven strategies for financial applications and enhancing decision-making processes in dynamic and unpredictable markets.
+%
+%
+%
+%
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[scale=0.8]{./ms1.png}
+%	\label{fig:ms1}
+%	\caption{Model performance over coin performances during investment period}
+%\end{figure}
+%
+%
+%
+%

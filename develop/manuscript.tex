@@ -1,0 +1,167 @@
+
+\documentclass[preprint,review,12pt]{elsarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{cellspace}
+\usepackage{amsmath}
+%\usepackage{cleveref}
+%\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{multirow}
+%\usepackage{enumerate}
+%\usepackage{mathtools}
+\usepackage{algorithm, algpseudocode}
+
+\usepackage{natbib}
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+\usepackage{lipsum}
+
+
+\journal{Journal of Knowledge-Based Systems}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num-names}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Optimizing Stock Portfolios Through Mean-Variance Disentanglement Using Deep Reinforcement Learning}
+%\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+
+%% Group authors per affiliation:
+\author{Ahmad Asadi}%\fnref{myfootnote}
+\ead{ahmad.asadi@aut.ac.ir}
+\author{Reza Safabakhsh\corref{mycorrespondingauthor}}
+\cortext[mycorrespondingauthor]{Corresponding author}
+\ead{safa@aut.ac.ir}
+
+%\fntext[myfootnote]{Since 1880.}
+
+%%% or include affiliations in footnotes:
+%\author[mymainaddress,mysecondaryaddress]{Ahmad Asadi}
+%\ead[E-mail]{ahmad.asadi@aut.ac.ir}
+
+%\author[mysecondaryaddress]{Reza Safabakhsh\corref{mycorrespondingauthor}}
+%\cortext[mycorrespondingauthor]{Corresponding author}
+%\ead{safa@aut.ac.ir}
+
+\address{Deep Learning Lab, Computer Engineering Department}
+\address{Amirkabir University of Technology, Tehran, Iran.}
+
+\begin{abstract}
+The rise of high-frequency trading, particularly in volatile markets like cryptocurrencies, demands sophisticated models for optimizing short-term stock portfolios. This study presents a cutting-edge approach to portfolio optimization by leveraging mean-variance disentanglement with a Variational Autoencoder to extract features that predict the persistence of price trends. These features are then fed into an Actor-Critic model, which dynamically selects the most promising stocks based on their trend persistence probabilities. Our model consists of a feature extractor that isolates latent factors influencing price movements and an Actor-Critic component that optimizes stock selection. Experimental results highlight the effectiveness of our method, achieving a 125\% total ROI over one year, significantly outperforming the best baseline strategy, which attained a 69\% ROI. This innovative method offers a robust framework for enhancing returns and managing risks in high-frequency trading environments.
+\end{abstract}
+
+
+%%Research highlights
+%\begin{highlights}
+%	\item A novel uncertainty measurement model for stock price trends is proposed.
+%	\item Used disentangled representation learning to find latent factors causing trend shift.
+%	\item Used a VAE feature extractor followed by an Actor-Critic for High Frequency Trading.
+%	\item Outperformed the baseline models in crypto portfolio management.
+%\end{highlights}
+
+
+\begin{keyword}
+	deep learning portfolio optimization\sep
+	disentangled representation learning\sep
+	mean-variance disentanglement\sep
+	variational auto-encoders\sep
+	actor-critic models
+%\texttt{elsarticle.cls}\sep \LaTeX\sep Elsevier \sep template
+%\MSC[2010] 00-01\sep  99-00
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+%\section{The Elsevier article class}
+%
+%\paragraph{Installation} If the document class \emph{elsarticle} is not available on your computer, you can download and install the system package \emph{texlive-publishers} (Linux) or install the \LaTeX\ package \emph{elsarticle} using the package manager of your \TeX\ installation, which is typically \TeX\ Live or Mik\TeX.
+%
+%\paragraph{Usage} Once the package is properly installed, you can use the document class \emph{elsarticle} to create a manuscript. Please make sure that your manuscript follows the guidelines in the Guide for Authors of the relevant journal. It is not necessary to typeset your manuscript in exactly the same way as an article, unless you are submitting to a camera-ready copy (CRC) journal.
+%
+%\paragraph{Functionality} The Elsevier article class is based on the standard article class and supports almost all of the functionality of that class. In addition, it features commands and options to format the
+%\begin{itemize}
+%\item document style
+%\item baselineskip
+%\item front matter
+%\item keywords and MSC codes
+%\item theorems, definitions and proofs
+%\item lables of enumerations
+%\item citation style and labeling.
+%\end{itemize}
+%
+%\section{Front matter}
+%
+%The author names and affiliations could be formatted in two ways:
+%\begin{enumerate}[(1)]
+%\item Group the authors per affiliation.
+%\item Use footnotes to indicate the affiliations.
+%\end{enumerate}
+%See the front matter of this document for examples. You are recommended to conform your choice to the journal you are submitting to.
+%
+%\section{Bibliography styles}
+%
+%There are various bibliography styles available. You can select the style of your choice in the preamble of this document. These styles are Elsevier styles based on standard styles like Harvard and Vancouver. Please use Bib\TeX\ to generate your bibliography and include DOIs whenever available.
+%
+%Here are two sample references: \cite{Feynman1963118,Dirac1953888}.
+
+
+
+\input{Introduction.tex}
+\input{RelatedWork.tex}
+\input{ProposedMethod.tex}
+\input{ExperimentalResults.tex}
+
+\input{Conclusion.tex}
+
+\bibliographystyle{elsarticle-num-names} 
+\bibliography{references}
+
+%\section*{References}
+%\bibliography{references}
+
+%\appendix
+%\input{Appendix}
+
+
+
+
+\end{document}
