@@ -3,81 +3,63 @@
 
 \subsection{The Dataset}
 
-In our study, we analyze a dataset consisting of historical daily OHLC (Open, High, Low, Close) data for the ten most liquid crypto-currencies in the market over the recent years\footnote{The OHLC prices were collected using the "CoinGeckoAPI" in Python. For more information, visit \url{https://www.coingecko.com/en/api}}. The coins chosen for our research are listed in Table \ref{tbl:data} . It is important to note that in cases where a coin has fewer than 3838 days of price data, the price series is extended by repeating the initial data point to fill the time interval.
+In our study, we analyze a dataset consisting of historical hourly OHLC (Open, High, Low, Close) data for the eight most liquid crypto exchanges in the market over the recent years. The exchanges chosen for our research are listed in Table \ref{tbl:data}.
 
 \begin{table}[h]
 	\centering
-	\caption{List of selected coins in experimental data-set}
+	\caption{List of selected exchanges in experimental data-set}
 	\begin{tabular}{c|c|c|c}
-		Symbol & Start Date & End Date & Number of available daily records \\
+		Symbol & Distinct Timestamp Count & First Timestamp & Last Timestamp \\
 		\hline
 		\hline
-		bitcoin & 2013-04-29 & 2023-11-01& 3838 \\
-		ethereum & 2015-08-07 & 2023-11-01& 3008 \\
-		binancecoin & 2017-09-17 & 2023-11-01& 2236 \\
-		binance-peg-xrp & 2021-05-12 & 2023-11-01& 903 \\
-		solana & 2020-04-10 & 2023-11-01& 1300 \\
-		litecoin & 2013-04-29 & 2023-11-01& 3838 \\
-		binance-peg-polkadot & 2021-05-12 & 2023-11-01& 903 \\
-		binance-peg-cardano & 2021-05-12 & 2023-11-01& 903 \\
-		dogecoin & 2013-12-17  & 2023-11-01& 3606 \\
-		matic-network & 2019-04-26 & 2023-11-01& 1650\\
+		ADA/BTC & 25982 & 2022-01-01& 2024-12-18 \\
+		BNB/BTC & 25983 & 2022-01-01& 2024-12-18 \\
+		BTC/USDT & 25981 & 2022-01-01& 2024-12-18 \\
+		DASH/BTC & 25983 & 2022-01-01& 2024-12-18 \\
+		EOS/BTC & 25982 & 2022-01-01& 2024-12-18 \\
+		ETH/BTC & 25982 & 2022-01-01& 2024-12-18 \\
+		LTC/BTC & 25980 & 2022-01-01& 2024-12-18 \\
+		XRP/BTC & 25983 & 2022-01-01& 2024-12-18 \\
 		
 	\end{tabular}
 	\label{tbl:data}
 
 \end{table}
 
-This dataset provides a comprehensive view of the price movements and trends in the crypto market, enabling us to evaluate the performance of the proposed method for stock portfolio management under real-world conditions. Figure \ref{fig:dataset} illustrates 100 random price series available in the dataset.
+Figure \ref{fig:dataset} illustrates the hourly OHLC price histories for the exchanges in the dataset. This dataset provides a comprehensive view of the price movements and trends in the cryptocurrencies market, enabling us to evaluate the performance of the proposed method for stock portfolio management under real-world conditions. 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.8]{./dataset.png}
-	\caption{Sample coin price time-series from the available dataset.}
+	\includegraphics[scale=0.55]{./dataset.png}
+	\caption{Illustration of the price series gathered in the dataset.}
 	\label{fig:dataset}
 \end{figure}
+
+
 
 In the rest of this section we will investigate different aspects of the proposed model in portfolio management. Section 4.2 studies the features of the latent space learned by the VAE model. Section 4.3 provides an ablation study on the proposed model and a makes a comparison between the performance of different versions of the proposed model. Section 4.4 compares the results of the proposed model with the baseline models.
 
 \subsection{Latent Space Investigation}
+In this experiment, we explored the latent space of a Variational Autoencoder (VAE) trained on time-series data. The model was designed to disentangle the input space into two distinct latent representations: one capturing the trend of the price series and the other representing the variance. To facilitate a focused analysis, the dimensionality of both the trend and variance variables was constrained to one. This simplification allowed for a straightforward visualization and interpretation of the latent space.
 
-The primary goal of the proposed model is to establish a suitable framework for quantifying the uncertainty surrounding the persistence of the prevailing stock price trend, with the aim of identifying the underlying rationale for adjusting portfolio assets based on forecasts of future price movements for individual stocks. The proposed VAE model outlined in Section 3.1 is tasked with capturing a latent space from the input price time-series data to assess the likelihood of a shift in trend direction in the future. Consequently, an examination of the characteristics of the acquired latent space within this model can offer insights into the efficacy of the proposed approach and its overarching objective.
+The encoder of the VAE outputs two latent variables, denoted as $\mu$ (mean) and $\sigma^2$ (variance), corresponding to the trend and variance representations. By iterating over the $\mu$-$\sigma^2$ space, we sampled time-series data using the decoder. These generated series were visualized in a 2D graph, where each point in the $\mu$-$\sigma^2$ grid corresponds to a generated time-series. The resulting graph contains 64 generated images arranged systematically across the latent space, divided into four distinct sub-spaces for analysis.
 
-To facilitate a clearer examination of the latent space and to shift the emphasis towards analyzing the model's behavior within this learned space, we investigate the model's performance using a synthetic dataset comprising noisy sine waves. Given that the concept of \textit{"mean reversion"}\footnote{Mean reversion is a statistical property observed in financial markets where stock prices tend to fluctuate around a long-term average, with extreme price movements typically followed by a corrective movement that brings the price closer to its historical mean. For more information about reports investigating mean reversion property in financial markets refer to \citet{enow2023investigating} and \citet{corbet2020asymmetric}.} is commonly utilized in the analysis of financial time series, we opt for a dataset featuring noisy sine waves due to their simplistic structure and resemblance to financial time series exhibiting mean reversion over extended periods.
+Figure \ref{fig:latent_full} demonstrates a 2D visualization as a comprehensive view of the latent space and its impact on the generated time-series. The graph is structured into four sub-spaces, with notable differences in the nature of the generated series:
 
-The synthesized series in this tiny dataset are generated based on the equation \eqref{eq:sines}.
-\begin{equation}
-	\zeta_t^i = \epsilon_t + sin(\nu^i + \frac{t}{2\pi})
-	\label{eq:sines}
-\end{equation}
-where $\zeta_t^i$  represents the $t$th element in the $i$th time series within the generated dataset. White noise $\epsilon_t \propto N(0,1)$ is introduced at each time step to add noise to the generated sequences, and a random uniform offset  $\nu^i \propto U(0, 2\pi)$ is applied to the $i$th sample in the dataset. Random windows based on equation \eqref{eq:sines} are generated and labeled using equation \eqref{eq:class1}. The VAE model is trained using the synthetic time series dataset. Given that all input samples in the generated dataset consist of sequences of scalar values, the model assumes the cardinality of both latent features are set to 1.
+\begin{enumerate}
+	\item Upper sub-spaces:
+	The generated series in the upper half of the latent space resemble the mathematical function $sin(x)$ for the range $-\frac{\pi}{2} < x < \frac{\pi}{2}$. These series exhibit smooth oscillations and a consistent periodicity, suggesting that the upper latent sub-spaces predominantly capture sinusoidal positive price trend.
+	
+	\item Lower sub-spaces:
+	In the lower half of the latent space, the generated series align more closely with $sin(x)$ for the range $0 < x < \frac{\pi}{2}$. These series exhibit similar periodic behavior but with a phase shift compared to the upper sub-spaces, indicating a separation in phase dynamics within the latent representation.
+	
+\end{enumerate}
 
-Figure \ref{fig:latent_sine} demonstrates the VAE's generation of random samples with varying $\hat{\mu}$ and $\hat{\sigma}$. The illustration involves traversing the latent space while adjusting $\hat{\mu}$ and $\hat{\sigma}$ values from $-1$ to $+1$. The top left image corresponds to $\hat{\mu} = -1$ and  $\hat{\sigma} = -1$, the top right image to $\hat{\mu} = +1$ and  $\hat{\sigma} = -1$, the bottom left image to $\hat{\mu} = -1$ and  $\hat{\sigma} = +1$, and the bottom right image to $\hat{\mu} = +1$ and  $\hat{\sigma} = +1$.
-
-Figure \ref{fig:latent_sine} highlights two key aspects. First, the VAE model effectively learns to separate data based on the series trend within the latent space. Samples near the center of the space, around $\hat{\mu} = 0$ and  $\hat{\sigma} = 0$, exhibit a subtle change in price trend, whereas those in the corners display a clear and distinct trend. Second, the latent space is populated with quarters of sine series that exhibit transitions in trend at their beginnings or endings. This indicates that the proposed VAE model can differentiate factors associated with price changes by leveraging its classification loss to disentangle the latent space effectively.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[scale=0.8]{./model_latent_sine.png}
-	\caption{Illustration of the latent space learned by simple VAE over noisy sine series.}
-	\label{fig:latent_sine}
-\end{figure}
-
-In the next experiment, the VAE model was trained using the closing price sequences from the crypto-currency dataset. Similarly, both latent features were constrained to a cardinality of $1$ for this experiment. The latent space generated from this training is visualized in Figure \ref{fig:latent_full}. The series displayed in the upper section of the figure represent series with consistently positive price trend, whereas those in the lower section depict abrupt declines. This visualization effectively demonstrates the VAE model's ability to disentangle distinct trends within the data.
-
-
-%
-%\begin{figure}[h]
-%\centering
-%\includegraphics[scale=0.8]{./model_latent_space_wo_classifier.png}
-%\caption{Illustration of the latent space learned by simple VAE over model performance series.}
-%\label{fig:latent_wo_classifier}
-%\end{figure}
-
+The primary contribution of this illustration is showcasing the VAE's ability to decompose price series into small wave-like patterns resembling sinusoidal functions in various phases. This indicates the model's capability to detect trend shifts effectively. By inputting a test time-series at each timestep, the VAE maps the historical price data into its trained latent space. The latent space then associates the input series with specific sub-spaces defined by the corresponding $\mu$ and $\sigma^2$ values.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.8]{./model_latent_space.png}
+	\includegraphics[scale=0.25]{./LatentSpace.jpg}
 	\caption{Illustration of the latent space learned by VAE with classifier over model performance series}
 	\label{fig:latent_full}
 \end{figure}
@@ -191,9 +173,9 @@ The primary objective of the proposed model is to identify optimal time points f
 The baseline models that have been compared with the proposed model are outlined below:
 
 \begin{itemize}
-	\item \textbf{BaH(X)}. This denotes the buy and hold strategy, where coin X is purchased at the beginning of the experiment and held until the end.
+	\item \textbf{BaH(X)}(\citet{li2014online}). This denotes the buy and hold strategy, where coin X is purchased at the beginning of the experiment and held until the end.
 %	\item \textbf{MLP-vanilla} \citet{taghian2022learning}.  This model, introduced by \citet{taghian2022learning}, involves a Deep Reinforcement Learning (DRL) model that learns candlestick patterns and establishes generalized trading rules for Bitcoin.
-	\item \textbf{UCRP}. Uniform Constant Rebalanced Portfolio strategy involves setting the portfolio proposal vector to a uniform vector $w^t=(\frac{1}{n}, \cdots, \frac{1}{n})$ at the start of each time step, where $n$ represents the number of available coins and $|w^t| = n$.	
+	\item \textbf{UCRP}(\citet{li2014online}). Uniform Constant Rebalanced Portfolio strategy involves setting the portfolio proposal vector to a uniform vector $w^t=(\frac{1}{n}, \cdots, \frac{1}{n})$ at the start of each time step, where $n$ represents the number of available coins and $|w^t| = n$.	
 	\item \textbf{FTW}. Following the winner strategy adjusts the portfolio proposal vector at each time step based on the historical performance of coins, with weights of winning coins revised according to their cumulative return $w^t = SoftMax(CR_t)$, where $CR_t$ calculated as in equation \eqref{eq:ftw}.
 	\begin{align}
 		CR_t = \{R(X_i^{1:t})| \> &X_i^{1:t} = \{X_i^1, \cdots, X_i^t\} \> \land  \notag \\ 
@@ -210,6 +192,22 @@ The baseline models that have been compared with the proposed model are outlined
 	\label{eq:ftl}
 	\end{align}
 \end{itemize}
+
+\subsubsection{Deep Learning Models}
+The state-of-the-art models that have been compared with the proposed model are outlined below:
+
+\begin{itemize}
+	\item \textbf{LSTM-GARCH}(\citet{garcia2024lstm}). This approach employs a GARCH model to estimate the variance of each price series. The resulting variance estimates are then input into an LSTM network to generate portfolio vectors at each timestep.
+	
+	\item \textbf{Transformer}(\citet{kumar2024transformer}). This model utilizes a Transformer network for price prediction, integrated with a DQN framework for decision-making.
+	
+\end{itemize}
+
+For all the models discussed above, we implemented the proposed architectures as described in the original papers and conducted evaluations using our dataset to ensure consistency and reproducibility of the results.
+
+
+\subsubsection{Comparison results}
+
 Table \ref{tbl:cmp} presents the comparison of the performance of the proposed model against the baseline models in terms of total return on investment (RoI), maximum drawdown, and average return. In this table, the term $CoinSwitching$ denotes the proposed model with the common reward term, while $CoinSwitching^*$ represents the proposed model with the proposed reward function, which is considered the most effective version of the proposed model.
 
 \begin{table}[h]
@@ -228,9 +226,13 @@ Table \ref{tbl:cmp} presents the comparison of the performance of the proposed m
 %										& MLP-vanilla \citet{taghian2022learning} & 248506 \%  & -82 \% & 1.87  \% \\
 		\hline
 		\hline
-		\multirow{3}{*}{Portfolio Management} 	& UCRP & -14 \%  & -35 \% & 0.010 \% \\
+		\multirow{3}{*}{Baselines} 	& UCRP & -14 \%  & -35 \% & 0.010 \% \\
 												& FTW & -15 \%  & -33 \% & 0.017  \% \\
 												& FTL & -15 \%  & -41 \% & 0.014  \% \\
+		\hline
+		\hline
+		\multirow{2}{*}{Deep Models} 	& LSTM-GARCH & 34 \%  & -46 \% & 0.13 \% \\
+									& Transformer & 48 \%  & -23 \% & 0.16  \% \\
 		\hline
 		\hline
 		\multirow{2}{*}{Proposed Model}  	& $CoinSwitching$ &  54 \%  & -20 \%  & 0.15 \%\\
@@ -258,24 +260,3 @@ Moreover, Figure \ref{fig:changes1} depicts the behaviors of the optimal coin-sw
 	\label{fig:changes1}
 \end{figure}
 
-%
-%\subsection{Comparison with Portfolio Management Strategies}
-%
-%
-%In the final part of our experiments, we compare the performance of our proposed method with other state-of-the-art models for portfolio management in the cryptocurrencies market. We evaluate key metrics such as return on investment, Sharpe ratio, and maximum drawdown to assess the effectiveness and robustness of our approach in generating optimal stock portfolios under uncertainty. By benchmarking our method against existing models, we aim to demonstrate its superiority in handling volatility and risk in the crypto market.
-%
-%Through these experiments, we seek to validate the efficacy of our proposed method for stock portfolio management in the cryptocurrencies market and provide insights into its performance compared to alternative approaches. The results of these experiments will contribute to advancing AI-driven strategies for financial applications and enhancing decision-making processes in dynamic and unpredictable markets.
-%
-%
-%
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[scale=0.8]{./ms1.png}
-%	\label{fig:ms1}
-%	\caption{Model performance over coin performances during investment period}
-%\end{figure}
-%
-%
-%
-%

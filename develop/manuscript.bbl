@@ -12,31 +12,6 @@
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
 %Type = Article
-\bibitem[{Markovitz(1959)}]{markovitz1959portfolio}
-\bibinfo{author}{H.~Markovitz},
-\newblock \bibinfo{title}{Portfolio selection: Efficient diversification of
-  investments},
-\newblock \bibinfo{journal}{NY: John Wiley}  (\bibinfo{year}{1959}).
-%Type = Article
-\bibitem[{Markowitz(1952)}]{markowitz1952portfolio}
-\bibinfo{author}{H.~Markowitz},
-\newblock \bibinfo{title}{Portfolio selection, the journal of finance. 7 (1)},
-\newblock \bibinfo{journal}{N} \bibinfo{volume}{1} (\bibinfo{year}{1952})
-  \bibinfo{pages}{71--91}.
-%Type = Article
-\bibitem[{Li and Hoi(2014)}]{li2014online}
-\bibinfo{author}{B.~Li}, \bibinfo{author}{S.~C. Hoi},
-\newblock \bibinfo{title}{Online portfolio selection: A survey},
-\newblock \bibinfo{journal}{ACM Computing Surveys (CSUR)} \bibinfo{volume}{46}
-  (\bibinfo{year}{2014}) \bibinfo{pages}{1--36}.
-%Type = Article
-\bibitem[{Thakkar and Chaudhari(2021)}]{thakkar2021fusion}
-\bibinfo{author}{A.~Thakkar}, \bibinfo{author}{K.~Chaudhari},
-\newblock \bibinfo{title}{Fusion in stock market prediction: a decade survey on
-  the necessity, recent developments, and potential future directions},
-\newblock \bibinfo{journal}{Information Fusion} \bibinfo{volume}{65}
-  (\bibinfo{year}{2021}) \bibinfo{pages}{95--107}.
-%Type = Article
 \bibitem[{Chen et~al.(2018)Chen, Zhou, and Wang}]{chen2018profitability}
 \bibinfo{author}{J.-C. Chen}, \bibinfo{author}{Y.~Zhou},
   \bibinfo{author}{X.~Wang},
@@ -45,14 +20,6 @@
 \newblock \bibinfo{journal}{Physica A: Statistical Mechanics and its
   Applications} \bibinfo{volume}{492} (\bibinfo{year}{2018})
   \bibinfo{pages}{1664--1678}.
-%Type = Article
-\bibitem[{Liu et~al.(2023)Liu, Zhang, Bao, Yao, and Zhang}]{liu2023multi}
-\bibinfo{author}{P.~Liu}, \bibinfo{author}{Y.~Zhang}, \bibinfo{author}{F.~Bao},
-  \bibinfo{author}{X.~Yao}, \bibinfo{author}{C.~Zhang},
-\newblock \bibinfo{title}{Multi-type data fusion framework based on deep
-  reinforcement learning for algorithmic trading},
-\newblock \bibinfo{journal}{Applied Intelligence} \bibinfo{volume}{53}
-  (\bibinfo{year}{2023}) \bibinfo{pages}{1683--1706}.
 %Type = Incollection
 \bibitem[{Gomber and Haferkorn(2015)}]{gomber2015high}
 \bibinfo{author}{P.~Gomber}, \bibinfo{author}{M.~Haferkorn},
@@ -61,11 +28,31 @@
   Technology, Third Edition}, \bibinfo{publisher}{IGI Global},
   \bibinfo{year}{2015}, pp. \bibinfo{pages}{1--9}.
 %Type = Article
+\bibitem[{Liu et~al.(2023)Liu, Zhang, Bao, Yao, and Zhang}]{liu2023multi}
+\bibinfo{author}{P.~Liu}, \bibinfo{author}{Y.~Zhang}, \bibinfo{author}{F.~Bao},
+  \bibinfo{author}{X.~Yao}, \bibinfo{author}{C.~Zhang},
+\newblock \bibinfo{title}{Multi-type data fusion framework based on deep
+  reinforcement learning for algorithmic trading},
+\newblock \bibinfo{journal}{Applied Intelligence} \bibinfo{volume}{53}
+  (\bibinfo{year}{2023}) \bibinfo{pages}{1683--1706}.
+%Type = Article
 \bibitem[{Asadi and Safabakhsh(2023)}]{asadi4423354multi}
 \bibinfo{author}{A.~Asadi}, \bibinfo{author}{R.~Safabakhsh},
 \newblock \bibinfo{title}{Multi-level graph neural network for information
   fusion in learning stock market dynamics},
 \newblock \bibinfo{journal}{Available at SSRN 4423354}  (\bibinfo{year}{2023}).
+%Type = Article
+\bibitem[{Li and Hoi(2014)}]{li2014online}
+\bibinfo{author}{B.~Li}, \bibinfo{author}{S.~C. Hoi},
+\newblock \bibinfo{title}{Online portfolio selection: A survey},
+\newblock \bibinfo{journal}{ACM Computing Surveys (CSUR)} \bibinfo{volume}{46}
+  (\bibinfo{year}{2014}) \bibinfo{pages}{1--36}.
+%Type = Article
+\bibitem[{Markovitz(1959)}]{markovitz1959portfolio}
+\bibinfo{author}{H.~Markovitz},
+\newblock \bibinfo{title}{Portfolio selection: Efficient diversification of
+  investments},
+\newblock \bibinfo{journal}{NY: John Wiley}  (\bibinfo{year}{1959}).
 %Type = Article
 \bibitem[{Li et~al.(2012)Li, Zhao, Hoi, and Gopalkrishnan}]{li2012pamr}
 \bibinfo{author}{B.~Li}, \bibinfo{author}{P.~Zhao}, \bibinfo{author}{S.~C.
@@ -130,22 +117,6 @@
 \newblock \bibinfo{journal}{Applied Intelligence} \bibinfo{volume}{51}
   (\bibinfo{year}{2021}) \bibinfo{pages}{889--905}.
 %Type = Article
-\bibitem[{Lin et~al.(2022)Lin, Chen, Sang, and Huang}]{lin2022multiagent}
-\bibinfo{author}{Y.-C. Lin}, \bibinfo{author}{C.-T. Chen},
-  \bibinfo{author}{C.-Y. Sang}, \bibinfo{author}{S.-H. Huang},
-\newblock \bibinfo{title}{Multiagent-based deep reinforcement learning for
-  risk-shifting portfolio management},
-\newblock \bibinfo{journal}{Applied Soft Computing} \bibinfo{volume}{123}
-  (\bibinfo{year}{2022}) \bibinfo{pages}{108894}.
-%Type = Article
-\bibitem[{Hao et~al.(2023)Hao, Zhang, and Zhang}]{hao2023stock}
-\bibinfo{author}{Z.~Hao}, \bibinfo{author}{H.~Zhang},
-  \bibinfo{author}{Y.~Zhang},
-\newblock \bibinfo{title}{Stock portfolio management by using fuzzy ensemble
-  deep reinforcement learning algorithm},
-\newblock \bibinfo{journal}{Journal of Risk and Financial Management}
-  \bibinfo{volume}{16} (\bibinfo{year}{2023}) \bibinfo{pages}{201}.
-%Type = Article
 \bibitem[{Zhao et~al.(2022)Zhao, Du, Liu, Wei, Chen, Zhuang, Li, and
   Kou}]{zhao2022stock}
 \bibinfo{author}{Y.~Zhao}, \bibinfo{author}{H.~Du}, \bibinfo{author}{Y.~Liu},
@@ -170,66 +141,100 @@
   Intelligence and Soft Computing}, \bibinfo{organization}{Springer},
   \bibinfo{year}{2022}, pp. \bibinfo{pages}{61--71}.
 %Type = Article
-\bibitem[{Sharpe(1998)}]{sharpe1998sharpe}
-\bibinfo{author}{W.~F. Sharpe},
-\newblock \bibinfo{title}{The sharpe ratio},
-\newblock \bibinfo{journal}{Streetwise--the Best of the Journal of Portfolio
-  Management} \bibinfo{volume}{3} (\bibinfo{year}{1998})
-  \bibinfo{pages}{169--185}.
-%Type = Article
-\bibitem[{Liu et~al.(2023)Liu, Mikriukov, Tjahyadi, Li, Payne, Yue, Siddique,
-  and Man}]{liu2023revolutionising}
-\bibinfo{author}{Y.~Liu}, \bibinfo{author}{D.~Mikriukov},
-  \bibinfo{author}{O.~C. Tjahyadi}, \bibinfo{author}{G.~Li},
-  \bibinfo{author}{T.~R. Payne}, \bibinfo{author}{Y.~Yue},
-  \bibinfo{author}{K.~Siddique}, \bibinfo{author}{K.~L. Man},
-\newblock \bibinfo{title}{Revolutionising financial portfolio management: The
-  non-stationary transformer’s fusion of macroeconomic indicators and
-  sentiment analysis in a deep reinforcement learning framework},
-\newblock \bibinfo{journal}{Applied Sciences} \bibinfo{volume}{14}
-  (\bibinfo{year}{2023}) \bibinfo{pages}{274}.
-%Type = Article
-\bibitem[{Abdar et~al.(2021)Abdar, Pourpanah, Hussain, Rezazadegan, Liu,
-  Ghavamzadeh, Fieguth, Cao, Khosravi, Acharya et~al.}]{abdar2021review}
-\bibinfo{author}{M.~Abdar}, \bibinfo{author}{F.~Pourpanah},
-  \bibinfo{author}{S.~Hussain}, \bibinfo{author}{D.~Rezazadegan},
-  \bibinfo{author}{L.~Liu}, \bibinfo{author}{M.~Ghavamzadeh},
-  \bibinfo{author}{P.~Fieguth}, \bibinfo{author}{X.~Cao},
-  \bibinfo{author}{A.~Khosravi}, \bibinfo{author}{U.~R. Acharya}, et~al.,
-\newblock \bibinfo{title}{A review of uncertainty quantification in deep
-  learning: Techniques, applications and challenges},
-\newblock \bibinfo{journal}{Information fusion} \bibinfo{volume}{76}
-  (\bibinfo{year}{2021}) \bibinfo{pages}{243--297}.
-%Type = Article
-\bibitem[{Du(2022)}]{du2022mean}
-\bibinfo{author}{J.~Du},
-\newblock \bibinfo{title}{Mean--variance portfolio optimization with deep
-  learning based-forecasts for cointegrated stocks},
-\newblock \bibinfo{journal}{Expert Systems with Applications}
-  \bibinfo{volume}{201} (\bibinfo{year}{2022}) \bibinfo{pages}{117005}.
-%Type = Inproceedings
-\bibitem[{Syu et~al.(2020)Syu, Wu, and Ho}]{syu2020portfolio}
-\bibinfo{author}{J.-H. Syu}, \bibinfo{author}{M.-E. Wu}, \bibinfo{author}{J.-M.
-  Ho},
-\newblock \bibinfo{title}{Portfolio management system with reinforcement
-  learning},
-\newblock in: \bibinfo{booktitle}{2020 IEEE International Conference on
-  Systems, Man, and Cybernetics (SMC)}, \bibinfo{organization}{IEEE},
-  \bibinfo{year}{2020}, pp. \bibinfo{pages}{4146--4151}.
-%Type = Article
 \bibitem[{Abdulsahib and Ghaderi(2024)}]{abdulsahib2024cross}
 \bibinfo{author}{H.~M. Abdulsahib}, \bibinfo{author}{F.~Ghaderi},
 \newblock \bibinfo{title}{Cross-domain disentanglement: A novel approach to
   financial market prediction},
 \newblock \bibinfo{journal}{IEEE Access}  (\bibinfo{year}{2024}).
 %Type = Article
-\bibitem[{Abdulsahib et~al.(2023)Abdulsahib, Ghaderi
-  et~al.}]{abdulsahib2023glad}
-\bibinfo{author}{H.~M. Abdulsahib}, \bibinfo{author}{F.~Ghaderi}, et~al.,
-\newblock \bibinfo{title}{Glad: Global--local approach; disentanglement
-  learning for financial market prediction},
-\newblock \bibinfo{journal}{IET Signal Processing} \bibinfo{volume}{2023}
-  (\bibinfo{year}{2023}).
+\bibitem[{Asare~Nezhad et~al.(2024)Asare~Nezhad, Kalhor, and
+  Nadjar~Araabi}]{asare2024deep}
+\bibinfo{author}{A.~Asare~Nezhad}, \bibinfo{author}{A.~Kalhor},
+  \bibinfo{author}{B.~Nadjar~Araabi},
+\newblock \bibinfo{title}{Deep learning for high-frequency cryptocurrency trend
+  detection: Incorporating technical indicators and a new approach for data
+  stationarity},
+\newblock \bibinfo{journal}{Available at SSRN 4796336}  (\bibinfo{year}{2024}).
+%Type = Inproceedings
+\bibitem[{Sun et~al.(2022)Sun, Xue, Wang, He, Zhu, Li, and
+  An}]{sun2022deepscalper}
+\bibinfo{author}{S.~Sun}, \bibinfo{author}{W.~Xue}, \bibinfo{author}{R.~Wang},
+  \bibinfo{author}{X.~He}, \bibinfo{author}{J.~Zhu}, \bibinfo{author}{J.~Li},
+  \bibinfo{author}{B.~An},
+\newblock \bibinfo{title}{Deepscalper: A risk-aware reinforcement learning
+  framework to capture fleeting intraday trading opportunities},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 31st ACM International
+  Conference on Information \& Knowledge Management}, \bibinfo{year}{2022}, pp.
+  \bibinfo{pages}{1858--1867}.
+%Type = Inproceedings
+\bibitem[{Qin et~al.(2024)Qin, Sun, Zhang, Xia, Wang, and An}]{qin2024earnhft}
+\bibinfo{author}{M.~Qin}, \bibinfo{author}{S.~Sun}, \bibinfo{author}{W.~Zhang},
+  \bibinfo{author}{H.~Xia}, \bibinfo{author}{X.~Wang}, \bibinfo{author}{B.~An},
+\newblock \bibinfo{title}{Earnhft: Efficient hierarchical reinforcement
+  learning for high frequency trading},
+\newblock in: \bibinfo{booktitle}{Proceedings of the AAAI Conference on
+  Artificial Intelligence}, volume~\bibinfo{volume}{38}, \bibinfo{year}{2024},
+  pp. \bibinfo{pages}{14669--14676}.
+%Type = Inproceedings
+\bibitem[{Zong et~al.(2024)Zong, Wang, Qin, Feng, Wang, and
+  An}]{zong2024macrohft}
+\bibinfo{author}{C.~Zong}, \bibinfo{author}{C.~Wang}, \bibinfo{author}{M.~Qin},
+  \bibinfo{author}{L.~Feng}, \bibinfo{author}{X.~Wang},
+  \bibinfo{author}{B.~An},
+\newblock \bibinfo{title}{Macrohft: Memory augmented context-aware
+  reinforcement learning on high frequency trading},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 30th ACM SIGKDD Conference
+  on Knowledge Discovery and Data Mining}, \bibinfo{year}{2024}, pp.
+  \bibinfo{pages}{4712--4721}.
+%Type = Inproceedings
+\bibitem[{Fatemi and Hu(2024)}]{fatemi2024finvision}
+\bibinfo{author}{S.~Fatemi}, \bibinfo{author}{Y.~Hu},
+\newblock \bibinfo{title}{Finvision: A multi-agent framework for stock market
+  prediction},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 5th ACM International
+  Conference on AI in Finance}, \bibinfo{year}{2024}, pp.
+  \bibinfo{pages}{582--590}.
+%Type = Article
+\bibitem[{Otabek and Choi(2024)}]{otabek2024prediction}
+\bibinfo{author}{S.~Otabek}, \bibinfo{author}{J.~Choi},
+\newblock \bibinfo{title}{From prediction to profit: A comprehensive review of
+  cryptocurrency trading strategies and price forecasting techniques},
+\newblock \bibinfo{journal}{IEEE Access}  (\bibinfo{year}{2024}).
+%Type = Article
+\bibitem[{Akyildirim et~al.(2021)Akyildirim, Goncu, and
+  Sensoy}]{akyildirim2021prediction}
+\bibinfo{author}{E.~Akyildirim}, \bibinfo{author}{A.~Goncu},
+  \bibinfo{author}{A.~Sensoy},
+\newblock \bibinfo{title}{Prediction of cryptocurrency returns using machine
+  learning},
+\newblock \bibinfo{journal}{Annals of Operations Research}
+  \bibinfo{volume}{297} (\bibinfo{year}{2021}) \bibinfo{pages}{3--36}.
+%Type = Inproceedings
+\bibitem[{Ye(2021)}]{ye2021predicting}
+\bibinfo{author}{W.~Ye},
+\newblock \bibinfo{title}{Predicting price direction of cryptocurrency using
+  artificial neural networks},
+\newblock in: \bibinfo{booktitle}{2021 2nd International Conference on Computer
+  Science and Management Technology (ICCSMT)}, \bibinfo{organization}{IEEE},
+  \bibinfo{year}{2021}, pp. \bibinfo{pages}{205--209}.
+%Type = Article
+\bibitem[{Liu et~al.(2021)Liu, Li, Li, Zhu, and Yao}]{liu2021forecasting}
+\bibinfo{author}{M.~Liu}, \bibinfo{author}{G.~Li}, \bibinfo{author}{J.~Li},
+  \bibinfo{author}{X.~Zhu}, \bibinfo{author}{Y.~Yao},
+\newblock \bibinfo{title}{Forecasting the price of bitcoin using deep
+  learning},
+\newblock \bibinfo{journal}{Finance research letters} \bibinfo{volume}{40}
+  (\bibinfo{year}{2021}) \bibinfo{pages}{101755}.
+%Type = Article
+\bibitem[{Jay et~al.(2020)Jay, Kalariya, Parmar, Tanwar, Kumar, and
+  Alazab}]{jay2020stochastic}
+\bibinfo{author}{P.~Jay}, \bibinfo{author}{V.~Kalariya},
+  \bibinfo{author}{P.~Parmar}, \bibinfo{author}{S.~Tanwar},
+  \bibinfo{author}{N.~Kumar}, \bibinfo{author}{M.~Alazab},
+\newblock \bibinfo{title}{Stochastic neural networks for cryptocurrency price
+  prediction},
+\newblock \bibinfo{journal}{Ieee access} \bibinfo{volume}{8}
+  (\bibinfo{year}{2020}) \bibinfo{pages}{82804--82818}.
 %Type = Article
 \bibitem[{Duan et~al.(2019)Duan, Matthey, Saraiva, Watters, Burgess, Lerchner,
   and Higgins}]{duan2019unsupervised}
@@ -273,18 +278,20 @@
 \newblock \bibinfo{journal}{arXiv preprint arXiv:1804.03599}
   (\bibinfo{year}{2018}).
 %Type = Article
-\bibitem[{Enow(2023)}]{enow2023investigating}
-\bibinfo{author}{S.~T. Enow},
-\newblock \bibinfo{title}{Investigating mean reversion in financial markets
-  using hurst model},
-\newblock \bibinfo{journal}{International Journal of Research in Business and
-  Social Science (2147-4478)} \bibinfo{volume}{12} (\bibinfo{year}{2023})
-  \bibinfo{pages}{197--201}.
-%Type = Article
-\bibitem[{Corbet and Katsiampa(2020)}]{corbet2020asymmetric}
-\bibinfo{author}{S.~Corbet}, \bibinfo{author}{P.~Katsiampa},
-\newblock \bibinfo{title}{Asymmetric mean reversion of bitcoin price returns},
-\newblock \bibinfo{journal}{International Review of Financial Analysis}
-  \bibinfo{volume}{71} (\bibinfo{year}{2020}) \bibinfo{pages}{101267}.
+\bibitem[{Garc{\'\i}a-Medina and Aguayo-Moreno(2024)}]{garcia2024lstm}
+\bibinfo{author}{A.~Garc{\'\i}a-Medina}, \bibinfo{author}{E.~Aguayo-Moreno},
+\newblock \bibinfo{title}{Lstm--garch hybrid model for the prediction of
+  volatility in cryptocurrency portfolios},
+\newblock \bibinfo{journal}{Computational Economics} \bibinfo{volume}{63}
+  (\bibinfo{year}{2024}) \bibinfo{pages}{1511--1542}.
+%Type = Inproceedings
+\bibitem[{Kumar et~al.(2024)Kumar, Rizk, and Santosh}]{kumar2024transformer}
+\bibinfo{author}{A.~Kumar}, \bibinfo{author}{R.~Rizk},
+  \bibinfo{author}{K.~Santosh},
+\newblock \bibinfo{title}{Transformer-based reinforcement learning model for
+  optimized quantitative trading},
+\newblock in: \bibinfo{booktitle}{2024 IEEE Conference on Artificial
+  Intelligence (CAI)}, \bibinfo{organization}{IEEE}, \bibinfo{year}{2024}, pp.
+  \bibinfo{pages}{1454--1455}.
 
 \end{thebibliography}
