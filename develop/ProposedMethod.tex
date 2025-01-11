@@ -1,7 +1,7 @@
 \section{Proposed Method}
 The model proposed in this paper consists of two modules. The first module is a feature extractor which is enabled to extract features indicating the strength of the current price trend in the near future. The second module is an actor-critic based model which selects a single coin to buy and hold until the next investment interval based on the uncertainty about the price trends of each coin extracted by the first module. 
 
-Figure \ref{fig:arch} illustrates the architecture of the model presented in this study. The model is built on the concept of disentangled representation learning, where a feature extractor is trained to extract features from the historical price data of each coin. These extracted features are then combined and fed into an actor-critic model to select a single coin from the available options in the market. It is important to note that the portfolio proposals in this research consist of only one coin, and no combinations of coins are considered. This constraint is imposed to enhance the clarity of the model's investigation and facilitate comparisons with the existing models in the field.
+Figure \ref{fig:arch} illustrates the architecture of the model presented in this study. The model is built based on the concept of disentangled representation learning, where a feature extractor is trained to extract features from the historical price data of each coin. These extracted features are then combined and fed into an actor-critic model to select a single coin from the available options in the market. It is important to note that the portfolio proposals in this research consist of only one coin, and no combination of coins is considered. This constraint is imposed to enhance the clarity of the model's investigation and facilitate comparisons with the existing models in the field.
 
 
 %In the context of stock trading, we approach the complex task by decomposing it into two distinct components: leveraging pre-trained deep learning models for portfolio management as expert models, and introducing a novel Model Switching Agent (MS Agent) designed to dynamically select the most suitable expert model based on the current state of the environment and the performance of each expert model. This two-pronged approach aims to enhance the adaptability and effectiveness of the overall trading system by intelligently switching between expert models to optimize decision-making in response to changing market conditions. Figure \ref{fig:arch} illustrates the structure of this idea.
@@ -9,7 +9,7 @@ Figure \ref{fig:arch} illustrates the architecture of the model presented in thi
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.6]{./NewArch.jpg}
-	\caption{The structure of Model Switching idea for stock trading}
+	\caption{Structure of the Model Switching approach for stock trading}
 	\label{fig:arch}
 \end{figure}
 
@@ -26,7 +26,6 @@ Given the assumption of independence among the generating factors, the task of d
 	p_\theta(x,z) &= p_\theta(x|z) p_\theta(z) \label{eq:1}\\
 	p_\theta(z) &= N(z|0, \sigma^2 I) \label{eq:2}
 \end{align}
-
 where $\theta$ denotes the set of parameters of the feature extractor model and the prior distribution $p(z)$ is typically assumed to be a multidimensional Gaussian distribution with the same variance in all directions 
 
 
@@ -49,17 +48,16 @@ where $z_i$ denotes the $i$th element of the latent vector, $\hat{\mu_i}$ and $\
 
 Since the latent vectors $\hat{\mu_i}$ and $\hat{\sigma_i}$ are the vectors that are passed to the portfolio manager module, they are assumed to encode information regarding price trend. In addition, these vectors should be informative enough to estimate our uncertainty about the persistence of the current price trend in the near future. Therefore, a classifier is embedded inside the VAE model and an extra term is added to VAE model's loss function to ensure that $\hat{\mu_i}$ and $\hat{\sigma_i}$ encode necessary information.
 
-A binary classifier $\Phi(\hat{\mu}, \hat{\sigma})$ is augmented into the VAE model in order to enforce latent variables to encode information related to future price trend. The ground-truth labels for this classifier are generated via equation \eqref{eq:class1}.
+A binary classifier $\Phi(\hat{\mu}, \hat{\sigma})$ is augmented into the VAE model in order to enforce latent variables to encode information related to the future price trend. The ground-truth labels for this classifier are generated via equation \eqref{eq:class1}.
 \begin{equation}
 	Y_i^t = 
 	\begin{cases}
-	\text{1} &\quad\text{if } \frac{x_i^{t+l}}{x_i^t} > 1\\
+	\text{1} &\quad\text{if } \dfrac{x_i^{t+l}}{x_i^t} > 1\\
 	\text{-1} &\quad\text{otherwise}
 	\end{cases}
 	\label{eq:class1}
 \end{equation}
-
-where $\frac{x_i^{t+l}}{x_i^t}$ computes the total return of stock $i$ in $l$ steps ahead from time step $t$ and $Y_i^t$ denotes the label of the classifier for stock $i$ in time step $t$. Based on equation \eqref{eq:class1}, the proposed loss function for learning the set of parameters of the VAE model is presented in equation \eqref{eq:lossVAE}.
+where $\dfrac{x_i^{t+l}}{x_i^t}$ computes the total return of stock $i$ in $l$ steps ahead from time step $t$ and $Y_i^t$ denotes the label of the classifier for stock $i$ in time step $t$. Based on equation \eqref{eq:class1}, the proposed loss function for learning the set of parameters of the VAE model is presented in equation \eqref{eq:lossVAE}.
 \begin{align}
 	\mathcal{L} &= \mathcal{E}  + \mathcal{C} - \mathcal{K}	\label{eq:lossVAE}  \\
 	\mathcal{E} &= \Sigma_{i=1}^S \Sigma_{t=w}^T (\hat{X_i^t} - X_i^T) ^ 2 	\label{eq:lossVAE2} \\
@@ -74,7 +72,7 @@ The VAE model undergoes training separately from the other components of the pro
 
 In the second part of our method, we propose an Actor-Critic neural network architecture for generating optimal stock portfolios over a set of liquid coins in the cryptocurrencies market. The Actor network learns a policy that selects one of the available stocks based on the current state of the market and the uncertainty estimates on current price trend of each stock provided by the VAE. The Critic network evaluates the value of the chosen actions and provides feedback to update the policy.
 
-The Actor-Critic architecture leverages reinforcement learning techniques to optimize the stock portfolio management strategy over time, taking into account both immediate rewards (e.g., profit/loss) and long-term objectives (e.g., investment risk and returns in long run). By incorporating uncertainty measurements from the VAE into the decision-making process, our model can adapt to changing market conditions and make more robust portfolio recommendations.
+The Actor-Critic architecture leverages reinforcement learning techniques to optimize the stock portfolio management strategy over time, taking into account both the immediate rewards (e.g., profit/loss) and the long-term objectives (e.g., investment risk and returns in long run). By incorporating uncertainty measurements from the VAE into the decision-making process, our model can adapt to changing market conditions and make more robust portfolio recommendations.
 
 Overall, our method combines disentangled representation learning with deep reinforcement learning to enhance stock portfolio management by effectively measuring uncertainty and optimizing portfolio decisions in the volatile cryptocurrencies market. Through this integrated approach, we aim to improve the performance, stability, and interpretability of AI-driven investment strategies for financial applications.
 
@@ -85,7 +83,7 @@ The Critic network is responsible for evaluating the actions generated by the Ac
 The overall structure of the Actor-Critic model is illustrated in Figure \ref{fig:arch}. The Actor network generates actions based on the input data, while the Critic network evaluates these actions to provide feedback to the Actor network. This feedback loop enables the model to learn and improve its trading strategies over time.
 
 
-In addition, a novel immediate reward function is proposed. It calculates the difference between the immediate return of the model's proposed action and the optimal return achievable based on future prices of each coin. This reward function is defined by Equation \eqref{eq:ri}.
+In addition, a novel immediate reward function is proposed. It calculates the difference between the immediate return of the model's proposed action and the optimal return achievable based on future prices of each coin. This reward function is defined in Equation \eqref{eq:ri}.
 \begin{equation}
 	\mathcal{R}_t = log(\frac{1}{1 + [\Sigma_{j} a_j^t * R_j^t] - max_j(R_j^t)})
 	\label{eq:ri}

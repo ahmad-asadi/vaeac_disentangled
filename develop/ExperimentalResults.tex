@@ -28,16 +28,16 @@ In our study, we analyze a dataset consisting of historical hourly OHLC (Open, H
 
 Figure \ref{fig:dataset} illustrates the hourly OHLC price histories for the exchanges in the dataset. This dataset provides a comprehensive view of the price movements and trends in the cryptocurrencies market, enabling us to evaluate the performance of the proposed method for stock portfolio management under real-world conditions. 
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.55]{./dataset.png}
+	\includegraphics[scale=0.3]{./dataset.png}
 	\caption{Illustration of the price series gathered in the dataset.}
 	\label{fig:dataset}
 \end{figure}
 
 
 
-In the rest of this section we will investigate different aspects of the proposed model in portfolio management. Section 4.2 studies the features of the latent space learned by the VAE model. Section 4.3 provides an ablation study on the proposed model and a makes a comparison between the performance of different versions of the proposed model. Section 4.4 compares the results of the proposed model with the baseline models.
+In the rest of this section we will investigate different aspects of the proposed model in portfolio management. Section 4.2 studies the features of the latent space learned by the VAE model. Section 4.3 provides an ablation study on the proposed model and a makes a comparison between the different versions of the proposed model. Section 4.4 compares the results of the proposed model with the baseline models.
 
 \subsection{Latent Space Investigation}
 In this experiment, we explored the latent space of a Variational Autoencoder (VAE) trained on time-series data. The model was designed to disentangle the input space into two distinct latent representations: one capturing the trend of the price series and the other representing the variance. To facilitate a focused analysis, the dimensionality of both the trend and variance variables was constrained to one. This simplification allowed for a straightforward visualization and interpretation of the latent space.
@@ -48,7 +48,7 @@ Figure \ref{fig:latent_full} demonstrates a 2D visualization as a comprehensive 
 
 \begin{enumerate}
 	\item Upper sub-spaces:
-	The generated series in the upper half of the latent space resemble the mathematical function $sin(x)$ for the range $-\frac{\pi}{2} < x < \frac{\pi}{2}$. These series exhibit smooth oscillations and a consistent periodicity, suggesting that the upper latent sub-spaces predominantly capture sinusoidal positive price trend.
+	The generated series in the upper half of the latent space resembles the mathematical function $sin(x)$ for the range $-\frac{\pi}{2} < x < \frac{\pi}{2}$. These series exhibit smooth oscillations and a consistent periodicity, suggesting that the upper latent sub-spaces predominantly capture sinusoidal positive price trend.
 	
 	\item Lower sub-spaces:
 	In the lower half of the latent space, the generated series align more closely with $sin(x)$ for the range $0 < x < \frac{\pi}{2}$. These series exhibit similar periodic behavior but with a phase shift compared to the upper sub-spaces, indicating a separation in phase dynamics within the latent representation.
@@ -116,7 +116,7 @@ The comparison of these models is presented in Table \ref{tbl:FE-dim}. The findi
 \end{table}
 
 \subsubsection{Reward Function}
-The reward function proposed for the coin-switching agent in equation \ref{eq:ri} is designed based on the distance between the selected coin by the agent and the best coin at each time step. This approach aims to incentivize the agent to learn to switch to the best coin at every time step. Another commonly used reward function in this research domain is the total portfolio return at each time step. To evaluate the effectiveness of the proposed reward function, a comparison between these two models is presented in table \ref{tbl:rewards}. The table includes metrics such as total return on investment (\textbf{total-ROI}), maximum drawdown (\textbf{MDD}), and average return (\textbf{AR}) for each model. The results indicate that the model utilizing the proposed return function demonstrates superior performance compared to the traditional reward function commonly used in the field.
+The reward function proposed for the coin-switching agent in equation \ref{eq:ri} is designed based on the distance between the selected coin by the agent and the best coin at each time step. This approach aims to give incentive to the agent to learn to switch to the best coin at every time step. Another commonly used reward function in this research domain is the total portfolio return at each time step. To evaluate the effectiveness of the proposed reward function, a comparison between these two models is presented in table \ref{tbl:rewards}. The table includes metrics such as total return on investment (\textbf{total-ROI}), maximum drawdown (\textbf{MDD}), and average return (\textbf{AR}) for each model. The results indicate that the model utilizing the proposed return function demonstrates superior performance compared to the traditional reward function commonly used in the field.
 
 
 \begin{table}[h]
@@ -132,22 +132,22 @@ The reward function proposed for the coin-switching agent in equation \ref{eq:ri
 	\end{tabular}
 \end{table}
 
-
-\subsubsection{Considering Risk-free Asset}
-One of the main underlying assumptions in our study was that mitigating minor losses would enhance portfolio management effectiveness. Consequently, we conducted an additional experiment to investigate how our model performs with and without the inclusion of a risk-free asset. Table \ref{tbl:rf1} presents a comparison of the model's performance under these conditions. The results indicate that the model performs better when the risk-free asset is included, particularly in terms of metrics such as maximum drawdown. This suggests that timely switching to the risk-free asset can help prevent losses in the investment process.
-
-\begin{table}[h]
-	\centering
-	\caption{The impact of risk-free asset presence on model's performance}
-	\label{tbl:rf1}
-	\begin{tabular}{c | c | c | c  }
-		Method & total-ROI & MDD & AR \\
-		\hline
-		\hline
-		with tether & \textbf{125 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% \\
-		without tether & 28 \% & -34 \% & 0.11 \% \\
-	\end{tabular}
-\end{table}
+%
+%\subsubsection{Considering Risk-free Asset}
+%One of the main underlying assumptions in our study was that mitigating minor losses would enhance portfolio management effectiveness. Consequently, we conducted an additional experiment to investigate how our model performs with and without the inclusion of a risk-free asset. Table \ref{tbl:rf1} presents a comparison of the model's performance under these conditions. The results indicate that the model performs better when the risk-free asset is included, particularly in terms of metrics such as maximum drawdown. This suggests that timely switching to the risk-free asset can help prevent losses in the investment process.
+%
+%\begin{table}[h]
+%	\centering
+%	\caption{The impact of risk-free asset presence on model's performance}
+%	\label{tbl:rf1}
+%	\begin{tabular}{c | c | c | c  }
+%		Method & total-ROI & MDD & AR \\
+%		\hline
+%		\hline
+%		with tether & \textbf{125 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% \\
+%		without tether & 28 \% & -34 \% & 0.11 \% \\
+%	\end{tabular}
+%\end{table}
 
 %To demonstrate the efficiency of the proposed model in identifying and transitioning to the risk-free asset at opportune moments, we conducted an additional experiment. In this study, we defined periods where all coins exhibited a bearish price trend as bearish markets, with all other times classified as bullish. Subsequently, we evaluated the behavior of the coin-switching agent in terms of its ability to switch to the risk-free asset during bearish market conditions. The outcomes of this experiment are presented in Table \ref{tbl:rf2}. The true positive metric (TP) signifies the percentage of instances where the coin-switching agent correctly switched to the risk-free asset, while the false positive metric (FP) indicates the percentage of incorrect switches, and so forth. The results reveal that in the presence of a risk-free asset, the model effectively learns to transition to this asset when the majority of other coins are experiencing a bearish price trend. Our findings demonstrate that the coin-switching agent successfully switched to the risk-free asset in approximately 30\% of instances when all available coins were in a bearish trend.
 %
@@ -176,7 +176,7 @@ The baseline models that have been compared with the proposed model are outlined
 	\item \textbf{BaH(X)}(\citet{li2014online}). This denotes the buy and hold strategy, where coin X is purchased at the beginning of the experiment and held until the end.
 %	\item \textbf{MLP-vanilla} \citet{taghian2022learning}.  This model, introduced by \citet{taghian2022learning}, involves a Deep Reinforcement Learning (DRL) model that learns candlestick patterns and establishes generalized trading rules for Bitcoin.
 	\item \textbf{UCRP}(\citet{li2014online}). Uniform Constant Rebalanced Portfolio strategy involves setting the portfolio proposal vector to a uniform vector $w^t=(\frac{1}{n}, \cdots, \frac{1}{n})$ at the start of each time step, where $n$ represents the number of available coins and $|w^t| = n$.	
-	\item \textbf{FTW}. Following the winner strategy adjusts the portfolio proposal vector at each time step based on the historical performance of coins, with weights of winning coins revised according to their cumulative return $w^t = SoftMax(CR_t)$, where $CR_t$ calculated as in equation \eqref{eq:ftw}.
+	\item \textbf{FTW}. Following the winner strategy adjusts the portfolio proposal vector at each time step based on the historical performance of coins, with weights of winning coins revised according to their cumulative return $w^t = SoftMax(CR_t)$, where $CR_t$ is calculated as in equation \eqref{eq:ftw}.
 	\begin{align}
 		CR_t = \{R(X_i^{1:t})| \> &X_i^{1:t} = \{X_i^1, \cdots, X_i^t\} \> \land  \notag \\ 
 		&R(X_i^{1:t}) = \frac{X_i^t}{X_i^1} \> \land \notag \\ 
@@ -214,29 +214,32 @@ Table \ref{tbl:cmp} presents the comparison of the performance of the proposed m
 	\centering
 	\caption{Comparison of the performance of the proposed model versus portfolio management, and single asset trading strategies.}
 	\label{tbl:cmp}
-	\begin{tabular}{l| c | c | c | c  }
-		Strategy & Model & total-ROI & MDD & AR \\
+	\begin{tabular}{l| c | c | c | c | c | c  }
+		Strategy & Model & total-ROI & MDD & AR & Accuracy & Hit Rate\\
 		\hline
 		\hline
-		\multirow{5}{*}{Single-Asset} 	& BaH(Bitcoin) & 69 \%  & -20 \% & 0.17 \% \\
-										& BaH(Ethereum) & 14 \%  & -27 \% & 0.08  \% \\
-										& BaH(Binancecoin) & -30 \%  & -41 \% & 0.06  \% \\
-										& BaH(Solana) & 19 \%  & -73 \% & 0.21 \% \\
-										& BaH(Dogecoin) & -52 \%  & -59 \% & 0.13  \% \\
+		\multirow{5}{*}{Single-Asset} 	& BaH(ETH/BTC) & -17.18 \%  & -20 \% & 0.17 \% & 13.26 \% & 39.98 \% \\
+										& BaH(BTC/USDT) & 0.32 \%  & -27 \% & 0.08  \% & 11.08 \% & 48.56 \% \\
+										& BaH(BNB/BTC) & -2.33 \%  & -41 \% & 0.06  \% & 18.51 \% & 50.66 \% \\
+										& BaH(XRP/BTC) & -14.74 \%  & -73 \% & 0.21 \% & 14.16 \% & 40.60 \% \\
+										& BaH(LTC/BTC) & -34.34 \%  & -59 \% & 0.13  \% & 12.89 \% & 41.01 \% \\
+										& BaH(ADA/BTC) & -8.30 \%  & -59 \% & 0.13  \% & 5.91 \% & 44.99 \% \\
+										& BaH(DASH/BTC) & -13.98 \%  & -59 \% & 0.13  \% & 12.11 \% & 42.86 \% \\
+										& BaH(EOS/BTC) & -11.93 \%  & -59 \% & 0.13  \% & 12.07 \% & 40.93 \% \\
 %										& MLP-vanilla \citet{taghian2022learning} & 248506 \%  & -82 \% & 1.87  \% \\
 		\hline
 		\hline
-		\multirow{3}{*}{Baselines} 	& UCRP & -14 \%  & -35 \% & 0.010 \% \\
-												& FTW & -15 \%  & -33 \% & 0.017  \% \\
-												& FTL & -15 \%  & -41 \% & 0.014  \% \\
+		\multirow{3}{*}{Baselines} 	& UCRP & -6.76 \%  & -35 \% & 0.010 \% & 13.26 \% & 39.98 \% \\
+												& FTW & -73.86 \%  & -33 \% & 0.017  \% & 12.52 \% & 37.93 \% \\
+												& FTL & -68.43 \%  & -41 \% & 0.014  \% & 11.45 \% & 40.85 \% \\
 		\hline
 		\hline
-		\multirow{2}{*}{Deep Models} 	& LSTM-GARCH & 34 \%  & -46 \% & 0.13 \% \\
-									& Transformer & 48 \%  & -23 \% & 0.16  \% \\
+		\multirow{2}{*}{Deep Models} 	& LSTM-GARCH & -31.81 \%  & -46 \% & 0.13 \% & 15.15 \% & 44.58 \% \\
+									& Transformer & -22.14 \%  & -3.38 \% & 0.16  \% & 14.82 \% & 45.03 \% \\
 		\hline
 		\hline
-		\multirow{2}{*}{Proposed Model}  	& $CoinSwitching$ &  54 \%  & -20 \%  & 0.15 \%\\
-											& $CoinSwitching^*$ & \textbf{125 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% \\
+		\multirow{2}{*}{Proposed Model}  	& $CoinSwitching$ &  54.1 \%  & -20 \%  & 0.15 \%& 15.89 \% & 43.96 \% \\
+											& $CoinSwitching^*$ & \textbf{163.41 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% & 16.38 \% & 48.07 \% \\
 	\end{tabular}
 \end{table}
 
@@ -244,7 +247,7 @@ Furthermore, the diagram in Figure \ref{fig:versions} illustrates the evolution 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.8]{./ms_with_tether.png}
+	\includegraphics[scale=0.6]{./ms1.png}
 	\caption{Comparison of the proposed model with single asset strategies.}
 	\label{fig:versions}
 \end{figure}
@@ -255,7 +258,7 @@ Moreover, Figure \ref{fig:changes1} depicts the behaviors of the optimal coin-sw
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.8]{./changes1.png}
+	\includegraphics[scale=0.6]{./changes1.png}
 	\caption{Model selection during investment timesteps}
 	\label{fig:changes1}
 \end{figure}
