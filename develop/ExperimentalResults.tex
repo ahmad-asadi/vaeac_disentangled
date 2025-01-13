@@ -91,8 +91,8 @@ Table \ref{tbl:FE-pred} presents a comparison of the baseline models' accuracy i
 		Method & MLP & VAE-Z & VAE-TR & VAE-Y & VAE-FULL \\
 		\hline
 		\hline
-		Train & 63.48& 76.94 & 95.36 & \textbf{95.45} & 94.36\\
-		Test & 61.80& 73.59 & 93.47 & \textbf{95.55} & 94.72\\
+		Train & 13.48 \%& 16.94 \%& 15.36 \%& \textbf{19.43} \%& 94.36 \%\\
+		Test & 1.80 \%& 10.59 \%& 13.47 \%& \textbf{16.92} \%& 14.72 \%\\
 	\end{tabular}
 \end{table}
 
@@ -110,8 +110,8 @@ The comparison of these models is presented in Table \ref{tbl:FE-dim}. The findi
 		Method & 1 & 10 & 50 & 150 & 200 \\
 		\hline
 		\hline
-		Train & 95.45& 96.02 & 98.51 & \textbf{98.85} & 95.46\\
-		Test & 95.55& 94.16 & 97.37 & \textbf{98.23} & 91.24\\
+		Train & 5.45& 6.02 & 18.51 & \textbf{19.43} \% & 18.46\\
+		Test & 5.55& 4.16 & 13.37 & \textbf{16.92} \% & 15.24\\
 	\end{tabular}
 \end{table}
 
@@ -127,8 +127,8 @@ The reward function proposed for the coin-switching agent in equation \ref{eq:ri
 		Method & total-ROI & MDD & AR \\
 		\hline
 		\hline
-		Proposed Reward & \textbf{125 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% \\
-		Common Reward & 54 \%  & -20 \%  & 0.15 \%\\
+		Proposed Reward & \textbf{1850.44 \%}  & \textbf{-13.30 \%} & \textbf{0.0523}  \% \\
+		Common Reward & 435.84 \%  & -25.48 \%  & 0.0151 \%\\
 	\end{tabular}
 \end{table}
 
@@ -176,21 +176,21 @@ The baseline models that have been compared with the proposed model are outlined
 	\item \textbf{BaH(X)}(\citet{li2014online}). This denotes the buy and hold strategy, where coin X is purchased at the beginning of the experiment and held until the end.
 %	\item \textbf{MLP-vanilla} \citet{taghian2022learning}.  This model, introduced by \citet{taghian2022learning}, involves a Deep Reinforcement Learning (DRL) model that learns candlestick patterns and establishes generalized trading rules for Bitcoin.
 	\item \textbf{UCRP}(\citet{li2014online}). Uniform Constant Rebalanced Portfolio strategy involves setting the portfolio proposal vector to a uniform vector $w^t=(\frac{1}{n}, \cdots, \frac{1}{n})$ at the start of each time step, where $n$ represents the number of available coins and $|w^t| = n$.	
-	\item \textbf{FTW}. Following the winner strategy adjusts the portfolio proposal vector at each time step based on the historical performance of coins, with weights of winning coins revised according to their cumulative return $w^t = SoftMax(CR_t)$, where $CR_t$ is calculated as in equation \eqref{eq:ftw}.
-	\begin{align}
-		CR_t = \{R(X_i^{1:t})| \> &X_i^{1:t} = \{X_i^1, \cdots, X_i^t\} \> \land  \notag \\ 
-		&R(X_i^{1:t}) = \frac{X_i^t}{X_i^1} \> \land \notag \\ 
-		&i \in \{1, \cdots, n\}\}
-		\label{eq:ftw}
-	\end{align}
-
-	\item \textbf{FTL}. Following the loser strategy refines the portfolio proposal vector at the beginning of each time step by adjusting the weights of losing coins based on the inverse of their historical performance $w^t = SoftMax(CR_t^{-1})$, using $CR_t^{-1}$ computed as shown in equation \eqref{eq:ftl}.
-	\begin{align}
-	CR_t^{-1} = \{R(X_i^{1:t})^{-1} | &X_i^{1:t} = \{X_i^1, \cdots, X_i^t\} \> \land \notag\\ 
-	&R(X_i^{1:t})^{-1} = \frac{1}{1 + log(\frac{X_i^t}{X_i^1})} \> \land \notag \\  
-	&i \in \{1, \cdots, n\} \}
-	\label{eq:ftl}
-	\end{align}
+%	\item \textbf{FTW}. Following the winner strategy adjusts the portfolio proposal vector at each time step based on the historical performance of coins, with weights of winning coins revised according to their cumulative return $w^t = SoftMax(CR_t)$, where $CR_t$ is calculated as in equation \eqref{eq:ftw}.
+%	\begin{align}
+%		CR_t = \{R(X_i^{1:t})| \> &X_i^{1:t} = \{X_i^1, \cdots, X_i^t\} \> \land  \notag \\ 
+%		&R(X_i^{1:t}) = \frac{X_i^t}{X_i^1} \> \land \notag \\ 
+%		&i \in \{1, \cdots, n\}\}
+%		\label{eq:ftw}
+%	\end{align}
+%
+%	\item \textbf{FTL}. Following the loser strategy refines the portfolio proposal vector at the beginning of each time step by adjusting the weights of losing coins based on the inverse of their historical performance $w^t = SoftMax(CR_t^{-1})$, using $CR_t^{-1}$ computed as shown in equation \eqref{eq:ftl}.
+%	\begin{align}
+%	CR_t^{-1} = \{R(X_i^{1:t})^{-1} | &X_i^{1:t} = \{X_i^1, \cdots, X_i^t\} \> \land \notag\\ 
+%	&R(X_i^{1:t})^{-1} = \frac{1}{1 + log(\frac{X_i^t}{X_i^1})} \> \land \notag \\  
+%	&i \in \{1, \cdots, n\} \}
+%	\label{eq:ftl}
+%	\end{align}
 \end{itemize}
 
 \subsubsection{Deep Learning Models}
@@ -208,38 +208,37 @@ For all the models discussed above, we implemented the proposed architectures as
 
 \subsubsection{Comparison results}
 
-Table \ref{tbl:cmp} presents the comparison of the performance of the proposed model against the baseline models in terms of total return on investment (RoI), maximum drawdown, and average return. In this table, the term $CoinSwitching$ denotes the proposed model with the common reward term, while $CoinSwitching^*$ represents the proposed model with the proposed reward function, which is considered the most effective version of the proposed model.
+Table \ref{tbl:cmp} presents the comparison of the performance of the proposed model against the baseline models in terms of total return on investment (RoI), maximum drawdown, and average return. In this table, the term $CoinSwitching^*$ represents the proposed model with the proposed reward function, which is considered the most effective version of the proposed model.
+
+The results presented in the table highlight the significant outperformance of the proposed CoinSwitching model compared to both baseline strategies and deep learning models. CoinSwitching achieves a remarkable total-ROI of 1850.44\%, surpassing all other approaches by a wide margin, while maintaining the lowest Maximum Drawdown (MDD) of -13.30\%, indicating exceptional risk management and stability. The model's Annualized Return (AR) of 0.0523\% further underscores its superior capability in generating consistent and substantial profits. While baseline strategies such as BaH(XRP/BTC) and UCRP show occasional success, they fall short in overall performance and risk mitigation. Similarly, deep learning models, including LSTM-GARCH and Transformer, struggle with negative ROI and higher MDD, highlighting their limitations in adapting to the dynamic cryptocurrency environment.
+
+In terms of Accuracy and Hit Rate, CoinSwitching demonstrates a well-balanced and robust performance. Although its Accuracy of 16.91\% is slightly lower than BaH(BNB/BTC) and Transformer, the high Hit Rate of 48.40\% indicates that it consistently selects coins with positive returns in the next time frame. This implies that CoinSwitching not only identifies profitable opportunities but also mitigates risks better than competing models. The impressive combination of high ROI, controlled MDD, and consistent Hit Rate validates the effectiveness of integrating transformer-based feature extraction with an Actor-Critic framework, showcasing its potential as a cutting-edge solution for dynamic portfolio management in volatile markets.
 
 \begin{table}[h]
 	\centering
 	\caption{Comparison of the performance of the proposed model versus portfolio management, and single asset trading strategies.}
 	\label{tbl:cmp}
 	\begin{tabular}{l| c | c | c | c | c | c  }
-		Strategy & Model & total-ROI & MDD & AR & Accuracy & Hit Rate\\
+		 Model & total-ROI & MDD & AR & Accuracy & Hit Rate\\
 		\hline
 		\hline
-		\multirow{5}{*}{Single-Asset} 	& BaH(ETH/BTC) & -17.18 \%  & -20 \% & 0.17 \% & 13.26 \% & 39.98 \% \\
-										& BaH(BTC/USDT) & 0.32 \%  & -27 \% & 0.08  \% & 11.08 \% & 48.56 \% \\
-										& BaH(BNB/BTC) & -2.33 \%  & -41 \% & 0.06  \% & 18.51 \% & 50.66 \% \\
-										& BaH(XRP/BTC) & -14.74 \%  & -73 \% & 0.21 \% & 14.16 \% & 40.60 \% \\
-										& BaH(LTC/BTC) & -34.34 \%  & -59 \% & 0.13  \% & 12.89 \% & 41.01 \% \\
-										& BaH(ADA/BTC) & -8.30 \%  & -59 \% & 0.13  \% & 5.91 \% & 44.99 \% \\
-										& BaH(DASH/BTC) & -13.98 \%  & -59 \% & 0.13  \% & 12.11 \% & 42.86 \% \\
-										& BaH(EOS/BTC) & -11.93 \%  & -59 \% & 0.13  \% & 12.07 \% & 40.93 \% \\
+		 BaH(ETH/BTC) & -22.83 \%  & -44.03 \% & -0.0035 \% & 12.58 \% & 40.06 \% \\
+										 BaH(BTC/USDT) & 54.83 \%  & -30.53 \% &  0.0088 \% & 10.25 \% & 47.75 \% \\
+										 BaH(BNB/BTC) & -23.95 \%  & -38.45 \% &  -0.0035 \% & \textbf{17.99} \% & \textbf{50.92} \% \\
+										 BaH(XRP/BTC) & 201.69 \%  & -39.96 \% & 0.0224 \% & 14.17 \% & 41.07 \% \\
+										 BaH(LTC/BTC) & -7.34 \%  & -41.03 \% &  0.0011 \% & 12.89 \% & 41.64 \% \\
+										 BaH(ADA/BTC) & 24.07 \%  & -39.85 \% &  0.0067 \% & 6.70 \% & 45.47 \% \\
+										 BaH(DASH/BTC) & -15.98 \%  & -43.99 \% &  -0.0001 \% & 12.14 \% & 43.28 \% \\
+										 BaH(EOS/BTC) & -31.62 \%  & -59.88 \% & -0.0030 \% & 13.26 \% & 42.37 \% \\
 %										& MLP-vanilla \citet{taghian2022learning} & 248506 \%  & -82 \% & 1.87  \% \\
+									 	 UCRP & 17.76 \%  & -26.41 \% & 0.0036 \% & 12.58 \% & 40.06 \% \\
 		\hline
 		\hline
-		\multirow{3}{*}{Baselines} 	& UCRP & -6.76 \%  & -35 \% & 0.010 \% & 13.26 \% & 39.98 \% \\
-												& FTW & -73.86 \%  & -33 \% & 0.017  \% & 12.52 \% & 37.93 \% \\
-												& FTL & -68.43 \%  & -41 \% & 0.014  \% & 11.45 \% & 40.85 \% \\
+		 LSTM-GARCH & -16.46 \%  & -52.79 \% & -0.0005 \% & 14.60 \% & 45.53 \% \\
+									 Transformer &  -32.29 \%  & -43.69 \% &  -0.0039 \% & 15.67 \% & 46.33 \% \\
 		\hline
 		\hline
-		\multirow{2}{*}{Deep Models} 	& LSTM-GARCH & -31.81 \%  & -46 \% & 0.13 \% & 15.15 \% & 44.58 \% \\
-									& Transformer & -22.14 \%  & -3.38 \% & 0.16  \% & 14.82 \% & 45.03 \% \\
-		\hline
-		\hline
-		\multirow{2}{*}{Proposed Model}  	& $CoinSwitching$ &  54.1 \%  & -20 \%  & 0.15 \%& 15.89 \% & 43.96 \% \\
-											& $CoinSwitching^*$ & \textbf{163.41 \%}  & \textbf{-19 \%} & \textbf{0.27}  \% & 16.38 \% & 48.07 \% \\
+		 $CoinSwitching$ &  \textbf{1850.44} \%  & \textbf{-13.30} \%  & \textbf{0.0523} \% & 16.91 \% & 48.40 \% \\
 	\end{tabular}
 \end{table}
 
@@ -252,13 +251,14 @@ Furthermore, the diagram in Figure \ref{fig:versions} illustrates the evolution 
 	\label{fig:versions}
 \end{figure}
 
-Moreover, Figure \ref{fig:changes1} depicts the behaviors of the optimal coin-switching strategy over the investment period. As shown in the figure, the strategy predominantly involves switching between coins when there are noticeable declines in coin prices, while minor price fluctuations have minimal impact on the agent's decisions.
+Moreover, Figure \ref{fig:changes1} depicts the behaviors of different strategies over the investment period. The portfolio weight visualization underscores the innovation of the CoinSwitching strategy, where the entire investment is allocated dynamically to a single coin at the beginning of each investment period. This chart clearly differentiates the CoinSwitching model from traditional strategies such as UCRP and baseline "Buy-and-Hold" (BaH) approaches. Unlike these methods, which either distribute weights equally or fix them to a specific coin, CoinSwitching actively reallocates 100\% of the portfolio to the coin predicted to show the most favorable trend. This decisive and focused approach enables the model to capitalize on high-probability opportunities, minimizing exposure to underperforming assets.
+
+The chart further illustrates how this single-coin allocation strategy functions effectively as a dynamic diversification mechanism over time. By successively switching to the most promising coin based on predicted trend shifts, CoinSwitching emulates the cumulative benefits of diversification while avoiding dilution of returns across less favorable coins. This behavior mirrors the concept of concurrent task execution in CPU processing, where tasks are processed in rapid succession to achieve efficiencies akin to parallel computation. The ability to adapt to market conditions dynamically, coupled with disentangled trend and variance predictions, ensures that the portfolio remains agile and optimized, maximizing returns while controlling risk in volatile cryptocurrency markets.
 
 
-
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{./changes1.png}
+	\includegraphics[scale=0.45]{./changes1.png}
 	\caption{Model selection during investment timesteps}
 	\label{fig:changes1}
 \end{figure}

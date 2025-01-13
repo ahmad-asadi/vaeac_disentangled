@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2024.4.23)  12 JAN 2025 00:59
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2024.3.15)  13 JAN 2025 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -586,7 +586,7 @@ File: l3backend-xdvipdfmx.def 2020-02-03 L3 backend support: xdvipdfmx
 \g__pdf_backend_object_int=\count318
 \g__pdf_backend_annotation_int=\count319
 )
-No file sn-article.aux.
+(./sn-article.aux)
 \openout1 = `sn-article.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
@@ -600,7 +600,7 @@ LaTeX Font Info:    ... okay on input line 91.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 9
 1.
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 91.
@@ -666,15 +666,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 91.
 LaTeX Info: Redefining \pageref on input line 91.
 LaTeX Info: Redefining \nameref on input line 91.
+
+(./sn-article.out) (./sn-article.out)
 \@outlinefile=\write3
 \openout3 = `sn-article.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 \c@lstlisting=\count321
 LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 143.
+
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <8.43146> not available
@@ -745,16 +744,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-
-LaTeX Warning: Reference `subsubsec2' on page 3 undefined on input line 191.
-
-
-LaTeX Warning: Reference `tab1' on page 3 undefined on input line 197.
-
-
-LaTeX Warning: Reference `tab2' on page 3 undefined on input line 197.
-
 LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 202.
+
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.015> not available
 (Font)              size <5> substituted on input line 202.
@@ -820,21 +811,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
 
-LaTeX Warning: Reference `fig1' on page 9 undefined on input line 415.
-
-
-LaTeX Warning: Reference `fig1' on page 9 undefined on input line 418.
-
-
-LaTeX Warning: Reference `algo1' on page 9 undefined on input line 420.
-
-
-LaTeX Warning: Reference `algln2' on page 9 undefined on input line 420.
-
-
-LaTeX Warning: Reference `algo1' on page 9 undefined on input line 420.
-
-
 Package natbib Warning: Citation `bib1' on page 9 undefined on input line 426.
 
 
@@ -884,19 +860,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
-
-LaTeX Warning: Reference `thm1' on page 11 undefined on input line 497.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-
-LaTeX Warning: Reference `fig1' on page 12 undefined on input line 508.
-
-
-LaTeX Warning: Reference `tab3' on page 12 undefined on input line 508.
-
 ! Undefined control sequence.
 <argument> \pdf@box 
                     
@@ -1901,10 +1867,10 @@ l.524 ...e.com/nature-research/editorial-policies}
                                                   ) for Nature Portfolio jou...
 (That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 14115 strings out of 479819
- 198638 string characters out of 5895846
- 670607 words of memory out of 5000000
- 30949 multiletter control sequences out of 15000+600000
+ 14141 strings out of 479819
+ 198860 string characters out of 5895846
+ 671859 words of memory out of 5000000
+ 30969 multiletter control sequences out of 15000+600000
  550246 words of font info for 125 fonts, out of 8000000 for 9000
  1358 hyphenation exceptions out of 8191
  46i,17n,72p,730b,1697s stack positions out of 5000i,500n,10000p,200000b,80000s

@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: manuscript.aux
 The style file: elsarticle-num-names.bst
-Illegal, another \bibstyle command---line 111 of file manuscript.aux
+Illegal, another \bibstyle command---line 108 of file manuscript.aux
  : \bibstyle
  :          {elsarticle-num-names}
 I'm skipping whatever remains of this command
