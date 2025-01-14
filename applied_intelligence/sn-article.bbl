@@ -1,0 +1,544 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{33}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\url{https://doi.org/#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\bibcommenthead
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem[\protect\citeauthoryear{Chen et~al.}{2018}]{chen2018profitability}
+\begin{barticle}
+\bauthor{\bsnm{Chen}, \binits{J.-C.}},
+\bauthor{\bsnm{Zhou}, \binits{Y.}},
+\bauthor{\bsnm{Wang}, \binits{X.}}:
+\batitle{Profitability of simple stationary technical trading rules with
+  high-frequency data of chinese index futures}.
+\bjtitle{Physica A: Statistical Mechanics and its Applications}
+\bvolume{492},
+\bfpage{1664}--\blpage{1678}
+(\byear{2018})
+\end{barticle}
+\endbibitem
+
+%%% 2
+\bibitem[\protect\citeauthoryear{Gomber and Haferkorn}{2015}]{gomber2015high}
+\begin{bchapter}
+\bauthor{\bsnm{Gomber}, \binits{P.}},
+\bauthor{\bsnm{Haferkorn}, \binits{M.}}:
+\bctitle{High frequency trading}.
+In: \bbtitle{Encyclopedia of Information Science and Technology, Third
+  Edition},
+pp. \bfpage{1}--\blpage{9}.
+\bpublisher{IGI Global}, \blocation{???}
+(\byear{2015})
+\end{bchapter}
+\endbibitem
+
+%%% 3
+\bibitem[\protect\citeauthoryear{Liu et~al.}{2023}]{liu2023multi}
+\begin{barticle}
+\bauthor{\bsnm{Liu}, \binits{P.}},
+\bauthor{\bsnm{Zhang}, \binits{Y.}},
+\bauthor{\bsnm{Bao}, \binits{F.}},
+\bauthor{\bsnm{Yao}, \binits{X.}},
+\bauthor{\bsnm{Zhang}, \binits{C.}}:
+\batitle{Multi-type data fusion framework based on deep reinforcement learning
+  for algorithmic trading}.
+\bjtitle{Applied Intelligence}
+\bvolume{53}(\bissue{2}),
+\bfpage{1683}--\blpage{1706}
+(\byear{2023})
+\end{barticle}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{Asadi and
+  Safabakhsh}{2023}]{asadi4423354multi}
+\begin{botherref}
+\oauthor{\bsnm{Asadi}, \binits{A.}},
+\oauthor{\bsnm{Safabakhsh}, \binits{R.}}:
+Multi-level graph neural network for information fusion in learning stock
+  market dynamics.
+Available at SSRN 4423354
+(2023)
+\end{botherref}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Li and Hoi}{2014}]{li2014online}
+\begin{barticle}
+\bauthor{\bsnm{Li}, \binits{B.}},
+\bauthor{\bsnm{Hoi}, \binits{S.C.}}:
+\batitle{Online portfolio selection: A survey}.
+\bjtitle{ACM Computing Surveys (CSUR)}
+\bvolume{46}(\bissue{3}),
+\bfpage{1}--\blpage{36}
+(\byear{2014})
+\end{barticle}
+\endbibitem
+
+%%% 6
+\bibitem[\protect\citeauthoryear{Markovitz}{1959}]{markovitz1959portfolio}
+\begin{botherref}
+\oauthor{\bsnm{Markovitz}, \binits{H.}}:
+Portfolio selection: Efficient diversification of investments.
+NY: John Wiley
+(1959)
+\end{botherref}
+\endbibitem
+
+%%% 7
+\bibitem[\protect\citeauthoryear{Li et~al.}{2012}]{li2012pamr}
+\begin{barticle}
+\bauthor{\bsnm{Li}, \binits{B.}},
+\bauthor{\bsnm{Zhao}, \binits{P.}},
+\bauthor{\bsnm{Hoi}, \binits{S.C.}},
+\bauthor{\bsnm{Gopalkrishnan}, \binits{V.}}:
+\batitle{Pamr: Passive aggressive mean reversion strategy for portfolio
+  selection}.
+\bjtitle{Machine learning}
+\bvolume{87},
+\bfpage{221}--\blpage{258}
+(\byear{2012})
+\end{barticle}
+\endbibitem
+
+%%% 8
+\bibitem[\protect\citeauthoryear{Pennanen}{2012}]{pennanen2012introduction}
+\begin{barticle}
+\bauthor{\bsnm{Pennanen}, \binits{T.}}:
+\batitle{Introduction to convex optimization in financial markets}.
+\bjtitle{Mathematical programming}
+\bvolume{134},
+\bfpage{157}--\blpage{186}
+(\byear{2012})
+\end{barticle}
+\endbibitem
+
+%%% 9
+\bibitem[\protect\citeauthoryear{Ayala et~al.}{2021}]{ayala2021technical}
+\begin{barticle}
+\bauthor{\bsnm{Ayala}, \binits{J.}},
+\bauthor{\bsnm{Garc{\'\i}a-Torres}, \binits{M.}},
+\bauthor{\bsnm{Noguera}, \binits{J.L.V.}},
+\bauthor{\bsnm{G{\'o}mez-Vela}, \binits{F.}},
+\bauthor{\bsnm{Divina}, \binits{F.}}:
+\batitle{Technical analysis strategy optimization using a machine learning
+  approach in stock market indices}.
+\bjtitle{Knowledge-Based Systems}
+\bvolume{225},
+\bfpage{107119}
+(\byear{2021})
+\end{barticle}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Agrawal et~al.}{2022}]{agrawal2022stock}
+\begin{botherref}
+\oauthor{\bsnm{Agrawal}, \binits{M.}},
+\oauthor{\bsnm{Shukla}, \binits{P.K.}},
+\oauthor{\bsnm{Nair}, \binits{R.}},
+\oauthor{\bsnm{Nayyar}, \binits{A.}},
+\oauthor{\bsnm{Masud}, \binits{M.}}:
+Stock prediction based on technical indicators using deep learning model.
+Computers, Materials \& Continua
+\textbf{70}(1)
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{Taghian
+  et~al.}{2021}]{taghian2021reinforcement}
+\begin{botherref}
+\oauthor{\bsnm{Taghian}, \binits{M.}},
+\oauthor{\bsnm{Asadi}, \binits{A.}},
+\oauthor{\bsnm{Safabakhsh}, \binits{R.}}:
+A reinforcement learning based encoder-decoder framework for learning stock
+  trading rules.
+arXiv preprint arXiv:2101.03867
+(2021)
+\end{botherref}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Taghian et~al.}{2022}]{taghian2022learning}
+\begin{barticle}
+\bauthor{\bsnm{Taghian}, \binits{M.}},
+\bauthor{\bsnm{Asadi}, \binits{A.}},
+\bauthor{\bsnm{Safabakhsh}, \binits{R.}}:
+\batitle{Learning financial asset-specific trading rules via deep reinforcement
+  learning}.
+\bjtitle{Expert Systems with Applications}
+\bvolume{195},
+\bfpage{116523}
+(\byear{2022})
+\end{barticle}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Carta et~al.}{2021}]{carta2021multi}
+\begin{barticle}
+\bauthor{\bsnm{Carta}, \binits{S.}},
+\bauthor{\bsnm{Corriga}, \binits{A.}},
+\bauthor{\bsnm{Ferreira}, \binits{A.}},
+\bauthor{\bsnm{Podda}, \binits{A.S.}},
+\bauthor{\bsnm{Recupero}, \binits{D.R.}}:
+\batitle{A multi-layer and multi-ensemble stock trader using deep learning and
+  deep reinforcement learning}.
+\bjtitle{Applied Intelligence}
+\bvolume{51},
+\bfpage{889}--\blpage{905}
+(\byear{2021})
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{Zhao et~al.}{2022}]{zhao2022stock}
+\begin{botherref}
+\oauthor{\bsnm{Zhao}, \binits{Y.}},
+\oauthor{\bsnm{Du}, \binits{H.}},
+\oauthor{\bsnm{Liu}, \binits{Y.}},
+\oauthor{\bsnm{Wei}, \binits{S.}},
+\oauthor{\bsnm{Chen}, \binits{X.}},
+\oauthor{\bsnm{Zhuang}, \binits{F.}},
+\oauthor{\bsnm{Li}, \binits{Q.}},
+\oauthor{\bsnm{Kou}, \binits{G.}}:
+Stock movement prediction based on bi-typed hybrid-relational market knowledge
+  graph via dual attention networks.
+IEEE Transactions on Knowledge and Data Engineering
+(2022)
+\end{botherref}
+\endbibitem
+
+%%% 15
+\bibitem[\protect\citeauthoryear{Gullotto}{2021}]{gullotto2021portfolio}
+\begin{botherref}
+\oauthor{\bsnm{Gullotto}, \binits{M.}}:
+Portfolio management and deep learning: Reinforcement learning and transformer
+  applied to stock market data.
+PhD thesis,
+Politecnico di Torino
+(2021)
+\end{botherref}
+\endbibitem
+
+%%% 16
+\bibitem[\protect\citeauthoryear{Kisiel and Gorse}{2022}]{kisiel2022portfolio}
+\begin{bchapter}
+\bauthor{\bsnm{Kisiel}, \binits{D.}},
+\bauthor{\bsnm{Gorse}, \binits{D.}}:
+\bctitle{Portfolio transformer for attention-based asset allocation}.
+In: \bbtitle{International Conference on Artificial Intelligence and Soft
+  Computing},
+pp. \bfpage{61}--\blpage{71}
+(\byear{2022}).
+\bcomment{Springer}
+\end{bchapter}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{Abdulsahib and
+  Ghaderi}{2024}]{abdulsahib2024cross}
+\begin{botherref}
+\oauthor{\bsnm{Abdulsahib}, \binits{H.M.}},
+\oauthor{\bsnm{Ghaderi}, \binits{F.}}:
+Cross-domain disentanglement: A novel approach to financial market prediction.
+IEEE Access
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{Asare~Nezhad et~al.}{2024}]{asare2024deep}
+\begin{botherref}
+\oauthor{\bsnm{Asare~Nezhad}, \binits{A.}},
+\oauthor{\bsnm{Kalhor}, \binits{A.}},
+\oauthor{\bsnm{Nadjar~Araabi}, \binits{B.}}:
+Deep learning for high-frequency cryptocurrency trend detection: Incorporating
+  technical indicators and a new approach for data stationarity.
+Available at SSRN 4796336
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{Sun et~al.}{2022}]{sun2022deepscalper}
+\begin{bchapter}
+\bauthor{\bsnm{Sun}, \binits{S.}},
+\bauthor{\bsnm{Xue}, \binits{W.}},
+\bauthor{\bsnm{Wang}, \binits{R.}},
+\bauthor{\bsnm{He}, \binits{X.}},
+\bauthor{\bsnm{Zhu}, \binits{J.}},
+\bauthor{\bsnm{Li}, \binits{J.}},
+\bauthor{\bsnm{An}, \binits{B.}}:
+\bctitle{Deepscalper: A risk-aware reinforcement learning framework to capture
+  fleeting intraday trading opportunities}.
+In: \bbtitle{Proceedings of the 31st ACM International Conference on
+  Information \& Knowledge Management},
+pp. \bfpage{1858}--\blpage{1867}
+(\byear{2022})
+\end{bchapter}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Qin et~al.}{2024}]{qin2024earnhft}
+\begin{bchapter}
+\bauthor{\bsnm{Qin}, \binits{M.}},
+\bauthor{\bsnm{Sun}, \binits{S.}},
+\bauthor{\bsnm{Zhang}, \binits{W.}},
+\bauthor{\bsnm{Xia}, \binits{H.}},
+\bauthor{\bsnm{Wang}, \binits{X.}},
+\bauthor{\bsnm{An}, \binits{B.}}:
+\bctitle{Earnhft: Efficient hierarchical reinforcement learning for high
+  frequency trading}.
+In: \bbtitle{Proceedings of the AAAI Conference on Artificial Intelligence},
+vol. \bseriesno{38},
+pp. \bfpage{14669}--\blpage{14676}
+(\byear{2024})
+\end{bchapter}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Zong et~al.}{2024}]{zong2024macrohft}
+\begin{bchapter}
+\bauthor{\bsnm{Zong}, \binits{C.}},
+\bauthor{\bsnm{Wang}, \binits{C.}},
+\bauthor{\bsnm{Qin}, \binits{M.}},
+\bauthor{\bsnm{Feng}, \binits{L.}},
+\bauthor{\bsnm{Wang}, \binits{X.}},
+\bauthor{\bsnm{An}, \binits{B.}}:
+\bctitle{Macrohft: Memory augmented context-aware reinforcement learning on
+  high frequency trading}.
+In: \bbtitle{Proceedings of the 30th ACM SIGKDD Conference on Knowledge
+  Discovery and Data Mining},
+pp. \bfpage{4712}--\blpage{4721}
+(\byear{2024})
+\end{bchapter}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{Fatemi and Hu}{2024}]{fatemi2024finvision}
+\begin{bchapter}
+\bauthor{\bsnm{Fatemi}, \binits{S.}},
+\bauthor{\bsnm{Hu}, \binits{Y.}}:
+\bctitle{Finvision: A multi-agent framework for stock market prediction}.
+In: \bbtitle{Proceedings of the 5th ACM International Conference on AI in
+  Finance},
+pp. \bfpage{582}--\blpage{590}
+(\byear{2024})
+\end{bchapter}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{Otabek and Choi}{2024}]{otabek2024prediction}
+\begin{botherref}
+\oauthor{\bsnm{Otabek}, \binits{S.}},
+\oauthor{\bsnm{Choi}, \binits{J.}}:
+From prediction to profit: A comprehensive review of cryptocurrency trading
+  strategies and price forecasting techniques.
+IEEE Access
+(2024)
+\end{botherref}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{Akyildirim
+  et~al.}{2021}]{akyildirim2021prediction}
+\begin{barticle}
+\bauthor{\bsnm{Akyildirim}, \binits{E.}},
+\bauthor{\bsnm{Goncu}, \binits{A.}},
+\bauthor{\bsnm{Sensoy}, \binits{A.}}:
+\batitle{Prediction of cryptocurrency returns using machine learning}.
+\bjtitle{Annals of Operations Research}
+\bvolume{297},
+\bfpage{3}--\blpage{36}
+(\byear{2021})
+\end{barticle}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{Ye}{2021}]{ye2021predicting}
+\begin{bchapter}
+\bauthor{\bsnm{Ye}, \binits{W.}}:
+\bctitle{Predicting price direction of cryptocurrency using artificial neural
+  networks}.
+In: \bbtitle{2021 2nd International Conference on Computer Science and
+  Management Technology (ICCSMT)},
+pp. \bfpage{205}--\blpage{209}
+(\byear{2021}).
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{Liu et~al.}{2021}]{liu2021forecasting}
+\begin{barticle}
+\bauthor{\bsnm{Liu}, \binits{M.}},
+\bauthor{\bsnm{Li}, \binits{G.}},
+\bauthor{\bsnm{Li}, \binits{J.}},
+\bauthor{\bsnm{Zhu}, \binits{X.}},
+\bauthor{\bsnm{Yao}, \binits{Y.}}:
+\batitle{Forecasting the price of bitcoin using deep learning}.
+\bjtitle{Finance research letters}
+\bvolume{40},
+\bfpage{101755}
+(\byear{2021})
+\end{barticle}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{Jay et~al.}{2020}]{jay2020stochastic}
+\begin{barticle}
+\bauthor{\bsnm{Jay}, \binits{P.}},
+\bauthor{\bsnm{Kalariya}, \binits{V.}},
+\bauthor{\bsnm{Parmar}, \binits{P.}},
+\bauthor{\bsnm{Tanwar}, \binits{S.}},
+\bauthor{\bsnm{Kumar}, \binits{N.}},
+\bauthor{\bsnm{Alazab}, \binits{M.}}:
+\batitle{Stochastic neural networks for cryptocurrency price prediction}.
+\bjtitle{Ieee access}
+\bvolume{8},
+\bfpage{82804}--\blpage{82818}
+(\byear{2020})
+\end{barticle}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Duan et~al.}{2019}]{duan2019unsupervised}
+\begin{botherref}
+\oauthor{\bsnm{Duan}, \binits{S.}},
+\oauthor{\bsnm{Matthey}, \binits{L.}},
+\oauthor{\bsnm{Saraiva}, \binits{A.}},
+\oauthor{\bsnm{Watters}, \binits{N.}},
+\oauthor{\bsnm{Burgess}, \binits{C.P.}},
+\oauthor{\bsnm{Lerchner}, \binits{A.}},
+\oauthor{\bsnm{Higgins}, \binits{I.}}:
+Unsupervised model selection for variational disentangled representation
+  learning.
+arXiv preprint arXiv:1905.12614
+(2019)
+\end{botherref}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{Li et~al.}{2022}]{li2022towards}
+\begin{bchapter}
+\bauthor{\bsnm{Li}, \binits{Y.}},
+\bauthor{\bsnm{Chen}, \binits{Z.}},
+\bauthor{\bsnm{Zha}, \binits{D.}},
+\bauthor{\bsnm{Du}, \binits{M.}},
+\bauthor{\bsnm{Ni}, \binits{J.}},
+\bauthor{\bsnm{Zhang}, \binits{D.}},
+\bauthor{\bsnm{Chen}, \binits{H.}},
+\bauthor{\bsnm{Hu}, \binits{X.}}:
+\bctitle{Towards learning disentangled representations for time series}.
+In: \bbtitle{Proceedings of the 28th ACM SIGKDD Conference on Knowledge
+  Discovery and Data Mining},
+pp. \bfpage{3270}--\blpage{3278}
+(\byear{2022})
+\end{bchapter}
+\endbibitem
+
+%%% 30
+\bibitem[\protect\citeauthoryear{Li et~al.}{2021}]{li2021learning}
+\begin{botherref}
+\oauthor{\bsnm{Li}, \binits{Y.}},
+\oauthor{\bsnm{Chen}, \binits{Z.}},
+\oauthor{\bsnm{Zha}, \binits{D.}},
+\oauthor{\bsnm{Du}, \binits{M.}},
+\oauthor{\bsnm{Zhang}, \binits{D.}},
+\oauthor{\bsnm{Chen}, \binits{H.}},
+\oauthor{\bsnm{Hu}, \binits{X.}}:
+Learning disentangled representations for time series.
+arXiv preprint arXiv:2105.08179
+(2021)
+\end{botherref}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{Burgess
+  et~al.}{2018}]{burgess2018understanding}
+\begin{botherref}
+\oauthor{\bsnm{Burgess}, \binits{C.P.}},
+\oauthor{\bsnm{Higgins}, \binits{I.}},
+\oauthor{\bsnm{Pal}, \binits{A.}},
+\oauthor{\bsnm{Matthey}, \binits{L.}},
+\oauthor{\bsnm{Watters}, \binits{N.}},
+\oauthor{\bsnm{Desjardins}, \binits{G.}},
+\oauthor{\bsnm{Lerchner}, \binits{A.}}:
+Understanding disentangling in $\beta$-vae.
+arXiv preprint arXiv:1804.03599
+(2018)
+\end{botherref}
+\endbibitem
+
+%%% 32
+\bibitem[\protect\citeauthoryear{Garc{\'\i}a-Medina and
+  Aguayo-Moreno}{2024}]{garcia2024lstm}
+\begin{barticle}
+\bauthor{\bsnm{Garc{\'\i}a-Medina}, \binits{A.}},
+\bauthor{\bsnm{Aguayo-Moreno}, \binits{E.}}:
+\batitle{Lstm--garch hybrid model for the prediction of volatility in
+  cryptocurrency portfolios}.
+\bjtitle{Computational Economics}
+\bvolume{63}(\bissue{4}),
+\bfpage{1511}--\blpage{1542}
+(\byear{2024})
+\end{barticle}
+\endbibitem
+
+%%% 33
+\bibitem[\protect\citeauthoryear{Kumar et~al.}{2024}]{kumar2024transformer}
+\begin{bchapter}
+\bauthor{\bsnm{Kumar}, \binits{A.}},
+\bauthor{\bsnm{Rizk}, \binits{R.}},
+\bauthor{\bsnm{Santosh}, \binits{K.}}:
+\bctitle{Transformer-based reinforcement learning model for optimized
+  quantitative trading}.
+In: \bbtitle{2024 IEEE Conference on Artificial Intelligence (CAI)},
+pp. \bfpage{1454}--\blpage{1455}
+(\byear{2024}).
+\bcomment{IEEE}
+\end{bchapter}
+\endbibitem
+
+\end{thebibliography}

@@ -1,12 +1,19 @@
 \BOOKMARK [1][]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][]{section.2}{Results}{}% 2
-\BOOKMARK [1][]{section.3}{This is an example for first level head—section head}{}% 3
-\BOOKMARK [2][]{subsection.3.1}{This is an example for second level head—subsection head}{section.3}% 4
-\BOOKMARK [3][]{subsubsection.3.1.1}{This is an example for third level head—subsubsection head}{subsection.3.1}% 5
-\BOOKMARK [1][]{section.4}{Equations}{}% 6
-\BOOKMARK [1][]{section.5}{Tables}{}% 7
-\BOOKMARK [1][]{section.6}{Figures}{}% 8
-\BOOKMARK [1][]{section.7}{Algorithms,\040Program\040codes\040and\040Listings}{}% 9
-\BOOKMARK [1][]{section.8}{Cross\040referencing}{}% 10
-\BOOKMARK [2][]{subsection.8.1}{Details\040on\040reference\040citations}{section.8}% 11
-\BOOKMARK [1][]{section.9}{Examples\040for\040theorem\040like\040environments}{}% 12
+\BOOKMARK [1][]{section.2}{Related Work}{}% 2
+\BOOKMARK [1][]{section.3}{Proposed Method}{}% 3
+\BOOKMARK [2][]{subsection.3.1}{Feature Extraction}{section.3}% 4
+\BOOKMARK [3][]{subsubsection.3.1.1}{Stock Switching}{subsection.3.1}% 5
+\BOOKMARK [1][]{section.4}{Experimental Results}{}% 6
+\BOOKMARK [2][]{subsection.4.1}{The Dataset}{section.4}% 7
+\BOOKMARK [2][]{subsection.4.2}{Latent Space Investigation}{section.4}% 8
+\BOOKMARK [2][]{subsection.4.3}{Ablation Study}{section.4}% 9
+\BOOKMARK [3][]{subsubsection.4.3.1}{Feature Extraction}{subsection.4.3}% 10
+\BOOKMARK [3][]{subsubsection.4.3.2}{Latent Space Dimensionality}{subsection.4.3}% 11
+\BOOKMARK [3][]{subsubsection.4.3.3}{Reward Function}{subsection.4.3}% 12
+\BOOKMARK [2][]{subsection.4.4}{Portfolio Proposals}{section.4}% 13
+\BOOKMARK [3][]{subsubsection.4.4.1}{Baselines}{subsection.4.4}% 14
+\BOOKMARK [3][]{subsubsection.4.4.2}{Deep Learning Models}{subsection.4.4}% 15
+\BOOKMARK [3][]{subsubsection.4.4.3}{Comparison results}{subsection.4.4}% 16
+\BOOKMARK [1][]{section.5}{Conclusion}{}% 17
+\BOOKMARK [2][]{subsection.5.1}{Advantages}{section.5}% 18
+\BOOKMARK [2][]{subsection.5.2}{Weaknesses}{section.5}% 19
